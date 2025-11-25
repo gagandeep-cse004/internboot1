@@ -4,1457 +4,510 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>InternBoot | Online Internships for Students</title>
-    <!-- SEO Meta Tags -->
-    <meta name="title" content="InternBoot" />
-    <meta name="description"
-        content="InternBoot is a platform that connects students with internships and job opportunities. We provide a wide range of internships in various fields and help students to build their careers." />
-    <meta name="keywords"
-        content="internboot, intern boot, internships, internship for students, internship in gurgaon, internship portal, internship with certificate, online internship certification, vitual internship, remote internship" />
-
-    <meta name="author" content="EmploymentExpress Verband LLP" />
-    <meta name="robots" content="index, follow" />
-    <meta name="publisher" content="InternBoot" />
-    <link rel="canonical" href="https://internboot.com/index.html" />
-    <link rel="sitemap" type="application/xml" href="https://internboot.com/sitemap.xml" />
-    <meta property="og:title" content="InternBoot" />
-    <meta property="og:description"
-        content="InternBoot is a platform that connects students with internships and job opportunities. We provide a wide range of internships in various fields and help students to build their careers." />
-    <meta property="og:image" content="https://internboot.com/img/logos/favicon.ico" />
-    <meta property="og:url" content="https://internboot.com"/>
-    <meta property="og:type" content="website" />
-    <!-- Favicon -->
-    <link rel="icon" type="image/icon" href="img/logos/favicon.ico" />
-    <link rel="apple-touch-icon" href="img/logos/favicon.ico"/>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet" />
-    <!-- Google AdSense -->
-    <meta name="google-adsense-account" content="ca-pub-8504842908769623" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8504842908769623"
-        crossorigin="anonymous"></script>
-
-    <!-- Google search console Site Verification -->
-    <meta name="google-site-verification" content="UPFW7DUzwVYPKXmqt7_lA4u2oHhIStW5bygxBwRDpl0" />
-
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/floating-button.css" />
-    <!-- Enhanced Stats CSS -->
-    <link rel="stylesheet" href="css/stats-enhanced.css" />
-    <!-- Partners Carousel CSS -->
-    <link rel="stylesheet" href="css/partners-carousel.css" />
-    <!-- Responsive Fixes CSS -->
-    <link rel="stylesheet" href="css/responsive-fixes.css" />
-    <link rel="stylesheet" href="../css/internboot.css">
+    <title>InternBoot | Create Account</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        html {
-            width: 100%;
-            max-width: 100vw;
-            overflow-x: hidden;
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            height: 100%;
-            scroll-behavior: smooth;
         }
 
         body {
-            width: 100%;
-            max-width: 100vw;
-            overflow-x: hidden;
-            margin: 0;
-            padding: 0;
-            min-height: 100%;
-            position: relative;
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, #002b8b, #007bff);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
         }
 
-        @media (max-width: 991.98px) {
+        .wrapper {
+            display: flex;
+            width: 90%;
+            max-width: 1000px;
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
 
-            html,
-            body {
-                width: 100vw;
-                max-width: 100vw;
-                overflow-x: hidden;
+        .left-panel {
+            background: linear-gradient(135deg, #0043c6, #007bff);
+            color: #fff;
+            padding: 40px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .left-panel img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            background: #fff;
+            padding: 8px;
+        }
+
+        .right-panel {
+            flex: 1.5;
+            padding: 40px;
+            overflow-y: auto;
+            max-height: 90vh;
+        }
+
+        .right-panel h3 {
+            color: #003b9a;
+            text-align: center;
+            font-size: 22px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: 500;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin-top: 5px;
+        }
+
+        input[type="file"] {
+            background: #f7f9fc;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #0043c6, #007bff);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            margin-top: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #003ba8, #0066d9);
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+            margin-top: 8px;
+            font-size: 13px;
+        }
+
+        .identity-section {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .identity-input {
+            display: none;
+            margin-top: 8px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 13px;
+        }
+
+        .footer a {
+            color: #0056b3;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        @media (max-width: 900px) {
+            .wrapper {
+                flex-direction: column;
+            }
+
+            .left-panel {
+                padding: 30px;
+            }
+
+            .left-panel h2 {
+                font-size: 22px;
+            }
+
+            .left-panel img {
+                width: 70px;
+                height: 70px;
+            }
+
+            .right-panel {
+                padding: 30px;
             }
         }
 
-        /* Fix for extra space on right side */ 
-        .container,
-        .container-fluid {
-            padding-right: 15px !important;
-            padding-left: 15px !important;
-            margin-right: auto !important;
-            margin-left: auto !important;
-            width: auto !important;
-            max-width: 100%;
-            box-sizing: border-box !important;
-        }
+        @media (max-width: 600px) {
+            .left-panel {
+                padding: 25px;
+            }
 
-        .row {
-            margin-right: 0 !important;
-            margin-left: 0 !important;
-            width: 100% !important;
-            max-width: 100% !important;
-        }
+            .right-panel {
+                padding: 20px;
+            }
 
-        /* Additional fix for any potential overflow */
-        * {
-            box-sizing: border-box;
+            .right-panel h3 {
+                font-size: 20px;
+            }
+
+            input,
+            select {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            button {
+                padding: 12px;
+                font-size: 16px;
+            }
+
+            .identity-section {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
     </style>
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "InternBoot",
-        "url": "https://internboot.com",
-        "sameAs": [
-          "https://www.linkedin.com/showcase/internboot/",
-          "https://www.instagram.com/employmentexpressllp/"
-        ]
-      }
-    </script>
 </head>
 
 <body>
-    <!-- Navbar Container -->
-    <div id="navbar-container">
-        <img src="https://media.licdn.com/dms/image/v2/D560BAQElN8CpYuEpAQ/company-logo_200_200/B56Zl16MEPJ4AI-/0/1758619812617/internboot_logo?e=2147483647&v=beta&t=qmQo26wvIvOf8hOg-MNLHH7TBUdAsyTXBr7EyL6BCXk" alt="Logo">
-        
-    
-        <ul id="nav-links" role="menu" aria-hidden="true">
-            <li role="menuitem">Home</li>
-            <li role="menuitem">Internships</li>
-            <li role="menuitem">Achievements</li>
-            <li role="menuitem">About</li>
-            <li role="menuitem">Contact</li>
-        </ul>
-
-        <div class="floating-apply-now">
-            <div class="apply-now-pulse"></div>
-            <a href="sign.html" class="apply-now-button"> 
-                <i class="fas fa-paper-plane"></i> Apply Now
-            </a>
+    <div class="wrapper">
+        <div class="left-panel">
+            <img src="https://media.licdn.com/dms/image/v2/D560BAQElN8CpYuEpAQ/company-logo_200_200/B56Zl16MEPJ4AI-/0/1758619812617/internboot_logo?e=2147483647&v=beta&t=qmQo26wvIvOf8hOg-MNLHH7TBUdAsyTXBr7EyL6BCXk"
+                alt="InternBoot Logo" />
+            <h2>Welcome to InternBoot</h2>
+            <p>Join India's fastest-growing internship platform.</p>
         </div>
 
-        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" type="button">
-            <span></span><span></span><span></span>
-        </button>
+        <div class="right-panel">
+            <h3>Create Your Account</h3>
 
-         
+            <form id="signupForm" enctype="multipart/form-data">
+                <label>First Name</label>
+                <input type="text" id="firstName" required />
 
-    </div>
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="svg-grid"></div>
-        <div class="floating-shapes">
-            <div class="floating-shape shape-1"></div>
-            <div class="floating-shape shape-2"></div>
-            <div class="floating-shape shape-3"></div>
-            <div class="floating-shape shape-4"></div>
-        </div>
+                <label>Last Name</label>
+                <input type="text" id="lastName" required />
 
+                <label>Username</label>
+                <input type="text" id="username" required />
 
-        <div class="container position-relative">
-            <div class="row align-items-center">
-                <!-- Text Content (Left Side) -->
-                <div class="col-lg-5 hero-text-content">
-                    <h1 class="hero-title mb-4" style="margin-top: 100px;">
-                        <span class="launch-text">Launch Your</span>
-                        <span class="highlight">Career</span> with the
-                        <span class="highlight-secondary">Perfect Internship</span>
-                    </h1>
+                <label>Email</label>
+                <input type="email" id="email" required />
+                
+                
 
-
-
-                     <p class="hero-subtitle mb-4">
-                        Connecting talented students with top companies for meaningful
-                        internship experiences that shape future careers
-                    </p>
-
-
-                    <!-- Key Stats Row -->
-                    <div class="key-stats-row mb-4">
-                        <div class="key-stat">
-                            <div class="key-stat-number">1.5<small>Lacs+</small></div>
-                            <div class="key-stat-label">Trained</div>
-                        </div>
-                        <div class="key-stat">
-                            <div class="key-stat-number">2.0<small>Lacs+</small></div>
-                            <div class="key-stat-label">Placed</div>
-                        </div>
-                        <div class="key-stat">
-                            <div class="key-stat-number">650<small>+</small></div>
-                            <div class="key-stat-label">Partners</div>
-                        </div>
-                    </div>
-
-
-                    <!-- Feature Pills -->
-                    <div class="feature-pills mb-4">
-                        <div class="feature-pill">
-                            <i class="fas fa-home"></i> Remote Work
-                        </div>
-                        <div class="feature-pill">
-                            <i class="fas fa-certificate"></i> Verified
-                        </div>
-                        <div class="feature-pill">
-                            <i class="fas fa-graduation-cap"></i> Skill Growth
-                        </div>
-                    </div>
+                <style>
+                    .form-group {
+                        margin-bottom: 20px;
+                    }
+                
+                    .form-group label {
+                        display: block;
+                        font-weight: 600;
+                        margin-bottom: 6px;
+                        color: #333;
+                    }
+                
+                    .form-input {
+                        width: 100%;
+                        padding: 12px;
+                        border: 1px solid #ccc;
+                        border-radius: 8px;
+                        font-size: 16px;
+                        outline: none;
+                        transition: 0.3s ease;
+                        background: #fff;
+                    }
+                
+                    .form-input:focus {
+                        border-color: #6a9cff;
+                        box-shadow: 0 0 6px rgba(106, 156, 255, 0.5);
+                    }
+                
+                    .checkbox-wrapper {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        margin: 10px 0 20px;
+                        font-size: 15px;
+                        font-weight: 500;
+                        color: #444;
+                    }
+                
+                    .checkbox-wrapper input[type="checkbox"] {
+                        width: 18px;
+                        height: 18px;
+                        accent-color: #4caf50;
+                        /* modern green tick */
+                        cursor: pointer;
+                    }
+                </style>
+                
+                <div class="form-group">
+                    <label>Mobile Number</label>
+                    <input type="tel" id="mobile" class="form-input" pattern="[0-9]{10}" maxlength="10" required oninput="syncMobile()"
+                        placeholder="Enter mobile number">
                 </div>
-
-                <!-- Illustration (Right Side) -->
-                <div class="col-lg-7 position-relative">
-                    <!-- Trusted badge -->
-                    <div class="trusted-badge-container">
-                        <div class="trusted-badge">
-                            <i class="fas fa-award me-2"></i>Trusted by 57,000+ Learners
-                        </div>
-                    </div>
-
-                    <div class="hero-illustration">
-                        <!-- Main illustration -->
-                        <div class="main-illustration">
-                            <!-- This will be styled with CSS background -->
-                        </div>
-
-                        <!-- Floating Apply Now UI -->
-                        <!-- <div class="floating-apply-now">
-                            <div class="apply-now-pulse"></div>
-                            <a href="sign.html" class="apply-now-button">
-                                <i class="fas fa-paper-plane"></i> Apply Now
-                            </a>
-                        </div> -->
-
-
-                        <!-- Category bubbles -->
-                        <div class="category-bubble category-bubble-1" data-category="Data Science">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <div class="category-bubble category-bubble-2" data-category="Web Dev">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <div class="category-bubble category-bubble-3" data-category="Marketing">
-                            <i class="fas fa-bullhorn"></i>
-                        </div>
-                    </div>
-
-                    <!-- Buttons moved below the illustration -->
-                    <div class="illustration-buttons text-center mt-3">
-                        <a href="sign.html" class="btn btn-outline-hero">Get Started</a>
-                    </div>
+                
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" id="sameAsMobile" onclick="toggleWhatsApp()" />
+                    <label for="sameAsMobile">WhatsApp number is same as Mobile</label>
                 </div>
-            </div>
-            <!-- Removed duplicate CTA buttons -->
-        </div>
-        <div class="wave-bottom"></div>
-    </section>
-
-
-
-
-    <!-- Stats Section -->
-    <section class="stats-section py-5">
-        <div class="container">
-            <div class="text-center mb-4">
-                <h2 class="section-title">Our Impact</h2>
-                <p class="section-subtitle">
-                    Making a difference through education and opportunities
-                </p>
-            </div>
-            <div class="row justify-content-center text-center">
-                <div class="col-lg-10 col-md-12">
-                    <div class="unified-stat-card">
-                        <div class="stat-items-container">
-                            <div class="stat-item">
-                                <div class="stat-icon">
-                                    <i class="fas fa-user-graduate"></i>
-                                </div>
-                                <h2 class="stat-number">1.5 lacs+</h2>
-                                <p class="stat-label">Candidates Trained and Placed</p>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-icon">
-                                    <i class="fas fa-briefcase"></i>
-                                </div>
-                                <h2 class="stat-number">2.0 lacs+</h2>
-                                <p class="stat-label">Candidates Placed Through Job Fairs</p>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-icon">
-                                    <i class="fas fa-laptop-code"></i>
-                                </div>
-                                <h2 class="stat-number">2.5 lacs+</h2>
-                                <p class="stat-label">Internships in 15+ Departments</p>
-                            </div>
-                        </div>
-                    </div>
+                
+                <div class="form-group">
+                    <label>WhatsApp Number</label>
+                    <input type="tel" id="whatsApp" class="form-input" pattern="[0-9]{10}" maxlength="10" required
+                        placeholder="Enter WhatsApp number">
                 </div>
-            </div>
-        </div>
+                
+                <script>
+                    function toggleWhatsApp() {
+                        const mobile = document.getElementById("mobile");
+                        const whatsApp = document.getElementById("whatsApp");
+                        const checkbox = document.getElementById("sameAsMobile");
 
-        <!-- Partners Carousel Section - Single Circular Slider -->
-        <div class="partners-carousel-section">
-            <div class="container">
-                <p class="partners-carousel-title">Our Partners & Recruiters</p>
-
-                <!-- Single Partners Carousel -->
-                <div class="partners-carousel">
-                    <div class="swiper partners-carousel-swiper">
-                        <div class="swiper-wrapper">
-                            <!-- All partners in a single slider -->
-
-                            <div class="swiper-slide">
-                                <div class="partner-carousel-item">
-                                    <img src="./img/logos/ibm.svg" alt="IBM logo" />
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="partner-carousel-item">
-                                    <img src="./img/logos/oracle1.svg" alt="Oracle logo" />
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="partner-carousel-item">
-                                    <img src="./img/logos/tcs.svg" alt="TCS logo" />
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="partner-carousel-item">
-                                    <img src="./img/logos/cognizants-logo.svg" alt="Cognizant logo" />
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="partner-carousel-item">
-                                    <img src="./img/logos/wipro.svg" alt="Wipro logo" />
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="partner-carousel-item">
-                                    <img src="./img/logos/hgs.svg" alt="HGS logo" />
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="partner-carousel-item">
-                                    <img src="./img/logos/niit.webp" alt="NIIT logo" />
-                                </div>
-                            </div>
-                            <!--<div class="swiper-slide">-->
-                            <!--    <div class="partner-carousel-item">-->
-                            <!--        <img src="./img/logos/AICTE Logo Vector.webp" alt="AICTE logo">-->
-                            <!--    </div>-->
-                            <!--</div>-->
-                            <div class="swiper-slide">
-                                <div class="partner-carousel-item">
-                                    <img src="./img/logos/Genpact_logo.svg" alt="Genpact logo" />
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="partner-carousel-item">
-                                    <img src="./img/logos/infosys-1.svg" alt="Infosys logo" />
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="partner-carousel-item">
-                                    <img src="./img/logos/bajaj.svg" alt="Bajaj logo" />
-                                </div>
-                            </div>
-                            
-                            <div class="swiper-slide">
-                                <div class="partner-carousel-item">
-                                    <img src="./img/logos/AIF-logo.webp" alt="AIF logo" />
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="partner-carousel-item">
-                                    <img src="./img/logos/logo.webp" alt="Logo" />
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="partner-carousel-item">
-                                    <img src="./img/logos/niitfoundatinLogonew.webp" alt="NIIT Foundation logo"
-                                        class="niit-foundation-logo" />
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="partner-carousel-item">
-                                    <img src="./img/logos/DSCI.webp" alt="Oracle logo" />
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="partner-carousel-item">
-                                    <img src="./img/logos/punjab.webp" alt="Punjab logo" />
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="partner-carousel-item">
-                                    <img src="./img/logos/apsche.webp" alt="APSCHE logo" />
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Navigation buttons -->
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Categories Section -->
-    <section id="categories" class="categories-section py-5 bg-light">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-title">Explore Internship Categories</h2>
-                <p class="section-subtitle">
-                    Find opportunities in various fields to kickstart your career
-                </p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-4 col-lg-3">
-                    <div class="category-card">
-                        <div class="icon-box">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <a href="internship.html">
-                            <h4>Software Development</h4>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3">
-                    <div class="category-card">
-                        <div class="icon-box">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <a href="internship.html">
-                            <h4>Web Development</h4>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3">
-                    <div class="category-card">
-                        <div class="icon-box">
-                            <i class="fas fa-database"></i>
-                        </div>
-                        <a href="internship.html">
-                            <h4>Data Science</h4>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3">
-                    <div class="category-card">
-                        <div class="icon-box">
-                            <i class="fas fa-ad"></i>
-                        </div>
-                        <a href="internship.html">
-                            <h4>Digital Marketing</h4>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3">
-                    <div class="category-card">
-                        <div class="icon-box">
-                            <i class="fas fa-hashtag"></i>
-                        </div>
-                        <a href="internship.html">
-                            <h4>Financial Analyst</h4>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3">
-                    <div class="category-card">
-                        <div class="icon-box">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <a href="internship.html">
-                            <h4>Sales and Marketing</h4>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3">
-                    <div class="category-card">
-                        <div class="icon-box">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <a href="internship.html">
-                            <h4>Business Development</h4>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3">
-                    <div class="category-card">
-                        <div class="icon-box">
-                            <i class="fas fa-pen-fancy"></i>
-                        </div>
-                        <a href="internship.html">
-                            <h4>Human Resource</h4>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-                                                  
-    <!-- About Us Section -->  
-    <section id="about" class="about-section py-5">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-title">Why Choose InternBoot</h2>
-                <p class="section-subtitle">
-                    The platform that connects talent with opportunity
-                </p>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <div class="about-card">
-                        <h3>Why students love us</h3>
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-user-graduate"></i>
-                            </div>
-                            <div class="feature-text">
-                                <h5>Connect directly with top companies</h5>
-                                <p>No middlemen or third-party recruiters involved.</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-info-circle"></i>
-                            </div>
-                            <div class="feature-text">
-                                <h5>Complete transparency</h5>
-                                <p>
-                                    View stipend, duration, and work details before applying.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-mouse-pointer"></i>
-                            </div>
-                            <div class="feature-text">
-                                <h5>One-click applications</h5>
-                                <p>Apply to multiple internships with a single profile.</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-certificate"></i>
-                            </div>
-                            <div class="feature-text">
-                                <h5>Verified opportunities</h5>
-                                <p>
-                                    All listings are verified and from legitimate companies.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="about-card">
-                        <h3>Why companies love us</h3>
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <div class="feature-text">
-                                <h5>Access to top talent</h5>
-                                <p>
-                                    Connect with motivated, skilled students from top
-                                    institutions.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-tools"></i>
-                            </div>
-                            <div class="feature-text">
-                                <h5>Powerful recruiting tools</h5>
-                                <p>
-                                    Post internships, manage applications, and schedule
-                                    interviews easily.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-chart-bar"></i>
-                            </div>
-                            <div class="feature-text">
-                                <h5>Applicant tracking system</h5>
-                                <p>Manage your recruitment pipeline efficiently.</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-robot"></i>
-                            </div>
-                            <div class="feature-text">
-                                <h5>AI-powered matching</h5>
-                                <p>Our system helps you find the most suitable candidates.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certificate Showcase Section -->
-    <section id="certificates" class="certificates-section py-5 bg-light">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-title">Our Certificates</h2>
-                <p class="section-subtitle">
-                    Recognized by leading companies and institutions worldwide
-                </p>
-            </div>
-            <div class="certificate-slider-container">
-                <div class="swiper certificate-slider">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="certificate-card">
-                                <img src="img/certificates/1.webp" alt="Certificate 1" />
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="certificate-card">
-                                <img src="img/certificates/2.webp" alt="Certificate 2 Prime" />
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="certificate-card">
-                                <img src="img/certificates/2a.webp" alt="Certificate 2" />
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="certificate-card">
-                                <img src="img/certificates/3a.webp" alt="Certificate 3 Prime" />
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="certificate-card">
-                                <img src="img/certificates/4.webp" alt="Certificate 4" />
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="certificate-card">
-                                <img src="img/certificates/4a.webp" alt="Certificate 5" />
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="certificate-card">
-                                <img src="img/certificates/5.webp" alt="Certificate 6" />
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="certificate-card">
-                                <img src="img/certificates/5a.webp" alt="Certificate 7" />
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="certificate-card">
-                                <img src="img/certificates/6.webp" alt="Certificate 8" />
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="certificate-card">
-                                <img src="img/certificates/7.webp" alt="Certificate 9" />
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="certificate-card">
-                                <img src="img/certificates/7a.webp" alt="Certificate 10" />
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="certificate-card">
-                                <img src="img/certificates/8.webp" alt="Certificate 11" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="certificate-navigation">
-                    <div class="certificate-button-prev">
-                        <i class="fas fa-chevron-left"></i>
-                    </div>
-                    <div class="certificate-pagination"></div>
-                    <div class="certificate-button-next">
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials-section py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">Success Stories</h2>
-            <div class="testimonial-stats text-center mb-5">
-                <h3 class="display-4 fw-bold" style="
-              color: #0d6efd;
-              background: linear-gradient(135deg, #0d6efd 0%, #0052cc 100%);
-              -webkit-background-clip: text;
-              background-clip: text;
-              -webkit-text-fill-color: transparent;
-            ">
-                    57000+ Learners
-                </h3>
-                <p class="lead">have exceeded in their career through our platform</p>
-            </div>
-            <h4 class="text-center mb-4">What Our Interns Say</h4>
-            <div class="swiper testimonialSwiper mb-5">
-                <div class="swiper-wrapper">
-                    <!-- Testimonial cards will be dynamically added here -->
-                </div>
-                <!-- Pagination removed for continuous movement -->
-            </div>
-
-            <h4 class="text-center mb-4 mt-5">More Success Stories</h4>
-
-            <!-- Smooth infinite slider container -->
-            <div class="smooth-slider-container" style="
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            height: auto;
-            min-height: 320px;
-            margin-top: 30px;
-            margin-bottom: 30px;
-          ">
-                <!-- Container to ensure 3 slides are visible at a time -->
-                <div class="carousel-container" style="max-width: 1110px; margin: 0 auto; position: relative">
-                    <!-- Add responsive styles for the carousel container -->
-                    <style>
-                        @media (max-width: 1200px) {
-                            .carousel-container {
-                                max-width: 740px;
-                                /* Show 2 slides on medium screens */
-                            }
-                        }
-
-                        @media (max-width: 768px) {
-                            .carousel-container {
-                                max-width: 370px;
-                                /* Show 1 slide on small screens */
-                            }
-                        }
-                    </style>
-                    <!-- Slider track that will be animated -->
-                    <div class="smooth-slider-track" style="
-                display: flex;
-                position: absolute;
-                left: 0;
-                top: 0;
-                transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-                width: max-content;
-              ">
-                        <!-- Prepended Testimonial 4 (for infinite loop) -->
-                        <div class="testimonial-card" style="
-                  flex: 0 0 340px;
-                  margin-right: 30px;
-                  background-color: #fff;
-                  border-radius: 10px;
-                  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-                  padding: 20px;
-                  height: 300px;
-                ">
-                            <div class="testimonial-content">
-                                <p class="testimonial-text mb-4">
-                                    NET Developer Interns helps us to build software using the
-                                    .NET framework, JavaScript, JQuery, HTML5, and other control
-                                    library.
-                                </p>
-                                <div class="testimonial-author">
-                                    <div class="testimonial-name-rating">
-                                        <div>
-                                            <h5 class="testimonial-name mb-1">Madhavi</h5>
-                                            <p class="testimonial-role mb-0">
-                                                .NET Developer Intern
-                                            </p>
-                                        </div>
-                                        <div class="testimonial-rating">
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Prepended Testimonial 3 (for infinite loop) -->
-                        <div class="testimonial-card" style="
-                  flex: 0 0 340px;
-                  margin-right: 30px;
-                  background-color: #fff;
-                  border-radius: 10px;
-                  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-                  padding: 20px;
-                  height: 300px;
-                ">
-                            <div class="testimonial-content">
-                                <p class="testimonial-text mb-4">
-                                    Through the intership I'm improve my skills and this company
-                                    useful for me a lot i learned very easily
-                                </p>
-                                <div class="testimonial-author">
-                                    <div class="testimonial-name-rating">
-                                        <div>
-                                            <h5 class="testimonial-name mb-1">Gaythri</h5>
-                                            <p class="testimonial-role mb-0">
-                                                Web Developer Intern
-                                            </p>
-                                        </div>
-                                        <div class="testimonial-rating">
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Prepended Testimonial 2 (for infinite loop) -->
-                        <div class="testimonial-card" style="
-                  flex: 0 0 340px;
-                  margin-right: 30px;
-                  background-color: #fff;
-                  border-radius: 10px;
-                  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-                  padding: 20px;
-                  height: 300px;
-                ">
-                            <div class="testimonial-content">
-                                <p class="testimonial-text mb-4">
-                                    It was nice getting job from this platform. Even though they
-                                    check our technical skills and conduct interview based on
-                                    it.
-                                </p>
-                                <div class="testimonial-author">
-                                    <div class="testimonial-name-rating">
-                                        <div>
-                                            <h5 class="testimonial-name mb-1">Sandeep</h5>
-                                            <p class="testimonial-role mb-0">
-                                                Software Developer Intern
-                                            </p>
-                                        </div>
-                                        <div class="testimonial-rating">
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Prepended Testimonial 1 (for infinite loop) -->
-                        <div class="testimonial-card" style="
-                  flex: 0 0 340px;
-                  margin-right: 30px;
-                  background-color: #fff;
-                  border-radius: 10px;
-                  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-                  padding: 20px;
-                  height: 300px;
-                ">
-                            <div class="testimonial-content">
-                                <p class="testimonial-text mb-4">
-                                    I had a great experience here and learn a very good
-                                    information, It being helpful to my career.
-                                </p>
-                                <div class="testimonial-author">
-                                    <div class="testimonial-name-rating">
-                                        <div>
-                                            <h5 class="testimonial-name mb-1">Kranthi</h5>
-                                            <p class="testimonial-role mb-0">Intern</p>
-                                        </div>
-                                        <div class="testimonial-rating">
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Testimonial 1 -->
-                        <div class="testimonial-card" style="
-                  flex: 0 0 340px;
-                  margin-right: 30px;
-                  background-color: #fff;
-                  border-radius: 10px;
-                  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-                  padding: 20px;
-                  height: 300px;
-                ">
-                            <div class="testimonial-content">
-                                <p class="testimonial-text mb-4">
-                                    I had a great experience here and learn a very good
-                                    information, It being helpful to my career.
-                                </p>
-                                <div class="testimonial-author">
-                                    <div class="testimonial-name-rating">
-                                        <div>
-                                            <h5 class="testimonial-name mb-1">Kranthi</h5>
-                                            <p class="testimonial-role mb-0">Intern</p>
-                                        </div>
-                                        <div class="testimonial-rating">
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Testimonial 2 -->
-                        <div class="testimonial-card" style="
-                  flex: 0 0 340px;
-                  margin-right: 30px;
-                  background-color: #fff;
-                  border-radius: 10px;
-                  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-                  padding: 20px;
-                  height: 300px;
-                ">
-                            <div class="testimonial-content">
-                                <p class="testimonial-text mb-4">
-                                    It was nice getting job from this platform. Even though they
-                                    check our technical skills and conduct interview based on
-                                    it.
-                                </p>
-                                <div class="testimonial-author">
-                                    <div class="testimonial-name-rating">
-                                        <div>
-                                            <h5 class="testimonial-name mb-1">Sandeep</h5>
-                                            <p class="testimonial-role mb-0">
-                                                Software Developer Intern
-                                            </p>
-                                        </div>
-                                        <div class="testimonial-rating">
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Testimonial 3 -->
-                        <div class="testimonial-card" style="
-                  flex: 0 0 340px;
-                  margin-right: 30px;
-                  background-color: #fff;
-                  border-radius: 10px;
-                  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-                  padding: 20px;
-                  height: 300px;
-                ">
-                            <div class="testimonial-content">
-                                <p class="testimonial-text mb-4">
-                                    Through the intership I'm improve my skills and this company
-                                    useful for me a lot i learned very easily
-                                </p>
-                                <div class="testimonial-author">
-                                    <div class="testimonial-name-rating">
-                                        <div>
-                                            <h5 class="testimonial-name mb-1">Gaythri</h5>
-                                            <p class="testimonial-role mb-0">
-                                                Web Developer Intern
-                                            </p>
-                                        </div>
-                                        <div class="testimonial-rating">
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Testimonial 4 -->
-                        <div class="testimonial-card" style="
-                  flex: 0 0 340px;
-                  margin-right: 30px;
-                  background-color: #fff;
-                  border-radius: 10px;
-                  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-                  padding: 20px;
-                  height: 300px;
-                ">
-                            <div class="testimonial-content">
-                                <p class="testimonial-text mb-4">
-                                    NET Developer Interns helps us to build software using the
-                                    .NET framework, JavaScript, JQuery, HTML5, and other control
-                                    library.
-                                </p>
-                                <div class="testimonial-author">
-                                    <div class="testimonial-name-rating">
-                                        <div>
-                                            <h5 class="testimonial-name mb-1">Madhavi</h5>
-                                            <p class="testimonial-role mb-0">
-                                                .NET Developer Intern
-                                            </p>
-                                        </div>
-                                        <div class="testimonial-rating">
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Testimonial 5 (duplicate of 1 for infinite loop) -->
-                        <div class="testimonial-card" style="
-                  flex: 0 0 340px;
-                  margin-right: 30px;
-                  background-color: #fff;
-                  border-radius: 10px;
-                  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-                  padding: 20px;
-                  height: 300px;
-                ">
-                            <div class="testimonial-content">
-                                <p class="testimonial-text mb-4">
-                                    I had a great experience here and learn a very good
-                                    information, It being helpful to my career.
-                                </p>
-                                <div class="testimonial-author">
-                                    <div class="testimonial-name-rating">
-                                        <div>
-                                            <h5 class="testimonial-name mb-1">Kranthi</h5>
-                                            <p class="testimonial-role mb-0">Intern</p>
-                                        </div>
-                                        <div class="testimonial-rating">
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Testimonial 6 (duplicate of 2 for infinite loop) -->
-                        <div class="testimonial-card" style="
-                  flex: 0 0 340px;
-                  margin-right: 30px;
-                  background-color: #fff;
-                  border-radius: 10px;
-                  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-                  padding: 20px;
-                  height: 300px;
-                ">
-                            <div class="testimonial-content">
-                                <p class="testimonial-text mb-4">
-                                    It was nice getting job from this platform. Even though they
-                                    check our technical skills and conduct interview based on
-                                    it.
-                                </p>
-                                <div class="testimonial-author">
-                                    <div class="testimonial-name-rating">
-                                        <div>
-                                            <h5 class="testimonial-name mb-1">Sandeep</h5>
-                                            <p class="testimonial-role mb-0">
-                                                Software Developer Intern
-                                            </p>
-                                        </div>
-                                        <div class="testimonial-rating">
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Testimonial 7 (duplicate of 3 for infinite loop) -->
-                        <div class="testimonial-card" style="
-                  flex: 0 0 340px;
-                  margin-right: 30px;
-                  background-color: #fff;
-                  border-radius: 10px;
-                  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-                  padding: 20px;
-                  height: 300px;
-                ">
-                            <div class="testimonial-content">
-                                <p class="testimonial-text mb-4">
-                                    Through the intership I'm improve my skills and this company
-                                    useful for me a lot i learned very easily
-                                </p>
-                                <div class="testimonial-author">
-                                    <div class="testimonial-name-rating">
-                                        <div>
-                                            <h5 class="testimonial-name mb-1">Gaythri</h5>
-                                            <p class="testimonial-role mb-0">
-                                                Web Developer Intern
-                                            </p>
-                                        </div>
-                                        <div class="testimonial-rating">
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Testimonial 8 (duplicate of 4 for infinite loop) -->
-                        <div class="testimonial-card" style="
-                  flex: 0 0 340px;
-                  margin-right: 30px;
-                  background-color: #fff;
-                  border-radius: 10px;
-                  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-                  padding: 20px;
-                  height: 300px;
-                ">
-                            <div class="testimonial-content">
-                                <p class="testimonial-text mb-4">
-                                    NET Developer Interns helps us to build software using the
-                                    .NET framework, JavaScript, JQuery, HTML5, and other control
-                                    library.
-                                </p>
-                                <div class="testimonial-author">
-                                    <div class="testimonial-name-rating">
-                                        <div>
-                                            <h5 class="testimonial-name mb-1">Madhavi</h5>
-                                            <p class="testimonial-role mb-0">
-                                                .NET Developer Intern
-                                            </p>
-                                        </div>
-                                        <div class="testimonial-rating">
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Testimonial 9 (duplicate of 1 for infinite loop) -->
-                        <div class="testimonial-card" style="
-                  flex: 0 0 340px;
-                  margin-right: 30px;
-                  background-color: #fff;
-                  border-radius: 10px;
-                  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-                  padding: 20px;
-                  height: 300px;
-                ">
-                            <div class="testimonial-content">
-                                <p class="testimonial-text mb-4">
-                                    I had a great experience here and learn a very good
-                                    information, It being helpful to my career.
-                                </p>
-                                <div class="testimonial-author">
-                                    <div class="testimonial-name-rating">
-                                        <div>
-                                            <h5 class="testimonial-name mb-1">Kranthi</h5>
-                                            <p class="testimonial-role mb-0">Intern</p>
-                                        </div>
-                                        <div class="testimonial-rating">
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Testimonial 10 (duplicate of 2 for infinite loop) -->
-                        <div class="testimonial-card" style="
-                  flex: 0 0 340px;
-                  margin-right: 30px;
-                  background-color: #fff;
-                  border-radius: 10px;
-                  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-                  padding: 20px;
-                  height: 300px;
-                ">
-                            <div class="testimonial-content">
-                                <p class="testimonial-text mb-4">
-                                    It was nice getting job from this platform. Even though they
-                                    check our technical skills and conduct interview based on
-                                    it.
-                                </p>
-                                <div class="testimonial-author">
-                                    <div class="testimonial-name-rating">
-                                        <div>
-                                            <h5 class="testimonial-name mb-1">Sandeep</h5>
-                                            <p class="testimonial-role mb-0">
-                                                Software Developer Intern
-                                            </p>
-                                        </div>
-                                        <div class="testimonial-rating">
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                            <i class="fas fa-star star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Script to control the smooth infinite slider -->
-            <script>
-                document.addEventListener("DOMContentLoaded", function () {
-                    // Get the slider track element
-                    const sliderTrack = document.querySelector(".smooth-slider-track");
-                    const sliderContainer = document.querySelector(
-                        ".smooth-slider-container"
-                    );
-
-                    // Calculate the width of prepended slides (4 slides * 370px each)
-                    const prependedSlidesWidth = 4 * 370; // 4 prepended slides
-
-                    // Set initial position to show the original slides (after the prepended ones)
-                    let position = -prependedSlidesWidth;
-
-                    // Width of a single slide (340px + 30px margin)
-                    const slideWidth = 370;
-
-                    // Number of original slides (not counting duplicates)
-                    const slideCount = 4;
-
-                    // Total number of slides including duplicates
-                    const totalSlides = 14; // 4 prepended + 4 original + 6 appended
-
-                    // Animation speed (pixels per frame)
-                    let speed = 0.5; // Match the first carousel speed
-
-                    // Adjust speed and visible slides based on screen width
-                    function updateSpeed() {
-                        const windowWidth = window.innerWidth;
-                        if (windowWidth < 768) {
-                            // Slower on mobile
-                            speed = 0.3;
-                        } else if (windowWidth < 1200) {
-                            // Medium speed on tablets
-                            speed = 0.4;
+                        if (checkbox.checked) {
+                            whatsApp.value = mobile.value;
+                            whatsApp.setAttribute("disabled", true);
+                            whatsApp.style.backgroundColor = "#f5f5f5"; // light grey to show disabled
                         } else {
-                            // Default speed on desktops
-                            speed = 0.5;
+                            whatsApp.removeAttribute("disabled");
+                            whatsApp.value = "";
+                            whatsApp.style.backgroundColor = "#fff"; // reset background
                         }
                     }
 
-                    // Set initial speed
-                    updateSpeed();
-
-                    // Last timestamp for animation
-                    let lastTimestamp = 0;
-
-                    // Function to animate the slider
-                    function animateSlider(timestamp) {
-                        // Calculate time difference for smooth animation regardless of frame rate
-                        if (!lastTimestamp) lastTimestamp = timestamp;
-                        const elapsed = timestamp - lastTimestamp;
-                        lastTimestamp = timestamp;
-
-                        // Move the slider smoothly (adjust speed based on elapsed time)
-                        position -= speed * (elapsed / 16); // Normalize to ~60fps
-
-                        // If we've moved a full set of slides, reset to maintain the illusion of infinite scrolling
-                        if (
-                            position <= -(prependedSlidesWidth + slideWidth * slideCount)
-                        ) {
-                            // Calculate exact offset to make the jump invisible
-                            const offset =
-                                position + prependedSlidesWidth + slideWidth * slideCount;
-                            // Reset to the position of the prepended slides plus the offset
-                            position = -prependedSlidesWidth + offset;
-
-                            // Disable transition, make the jump, then re-enable
-                            requestAnimationFrame(() => {
-                                sliderTrack.style.transition = "none";
-                                sliderTrack.style.transform = `translate3d(${ position }px, 0, 0)`;
-
-                                // Force reflow to make the transition removal take effect
-                                sliderTrack.offsetHeight;
-
-                                // Re-enable transitions on the next frame
-                                requestAnimationFrame(() => {
-                                    sliderTrack.style.transition =
-                                        "transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)";
-                                });
-                            });
+                    function syncMobile() {
+                        const mobileValue = document.getElementById("mobile").value;
+                        const checkboxChecked = document.getElementById("sameAsMobile").checked;
+                        if (checkboxChecked) {
+                            document.getElementById("whatsApp").value = mobileValue;
                         }
-
-                        // If we've scrolled backward into the prepended slides
-                        if (position > -prependedSlidesWidth) {
-                            // Calculate exact offset to make the jump invisible
-                            const offset = position + prependedSlidesWidth;
-                            // Reset to the end of the original slides plus the offset
-                            position =
-                                -(prependedSlidesWidth + slideWidth * (slideCount - 1)) +
-                                offset;
-
-                            // Disable transition, make the jump, then re-enable
-                            requestAnimationFrame(() => {
-                                sliderTrack.style.transition = "none";
-                                sliderTrack.style.transform = `translate3d(${ position }px, 0, 0)`;
-
-                                // Force reflow
-                                sliderTrack.offsetHeight;
-
-                                // Re-enable transitions on the next frame
-                                requestAnimationFrame(() => {
-                                    sliderTrack.style.transition =
-                                        "transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)";
-                                });
-                            });
-                        }
-
-                        // Apply the transform with hardware acceleration for smoother animation
-                        sliderTrack.style.transform = `translate3d(${ position }px, 0, 0)`;
-                        sliderTrack.style.willChange = "transform";
-
-                        // Request the next animation frame
-                        requestAnimationFrame(animateSlider);
                     }
+                </script>
 
-                    // Pause animation on hover
-                    document
-                        .querySelector(".carousel-container")
-                        .addEventListener("mouseenter", function () {
-                            speed = 0; // Stop the animation
-                        });
 
-                    // Resume animation on mouse leave
-                    document
-                        .querySelector(".carousel-container")
-                        .addEventListener("mouseleave", function () {
-                            // Resume with the appropriate speed for the current screen size
-                            updateSpeed();
-                        });
+                <label>Password</label>
+                <input type="password" id="password" placeholder="Min 8 chars & a number" required />
 
-                    // Handle window resize to ensure smooth animation continues
-                    window.addEventListener("resize", function () {
-                        // Update animation speed based on new screen size
-                        updateSpeed();
+                <label>Profile Picture</label>
+                <input type="file" id="profilePic" accept="image/*" required />
 
-                        // Reset position on resize to prevent visual glitches
-                        // Reset to the position of the prepended slides
-                        position = -prependedSlidesWidth;
-                        sliderTrack.style.transition = "none";
-                        sliderTrack.style.transform = `translate3d(${ position }px, 0, 0)`;
+                <label>Key Skills</label>
+                <input type="text" id="skills" placeholder="e.g. Java, Python, SQL" />
 
-                        // Force reflow
-                        sliderTrack.offsetHeight;
+                <label>Employment Status</label>
+                <select id="status" required>
+                    <option value="">Select</option>
+                    <option>Student</option>
+                    <option>Employed</option>
+                    <option>Unemployed</option>
+                    <option>Freelancer</option>
+                </select>
 
-                        // Re-enable transitions
-                        sliderTrack.style.transition =
-                            "transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)";
-                    });
+                <label>Education Level</label>
+                <select id="education" required>
+                    <option value="">Select</option>
+                    <option>Undergraduate</option>
+                    <option>Postgraduate</option>
+                    <option>Diploma</option>
+                    <option>PhD</option>
+                </select>
 
-                    // Start the animation
-                    requestAnimationFrame(animateSlider);
-                });
-            </script>
+                <label>Internship Category</label>
+                <select id="category" required>
+                    <option value="">Select Category</option>
+                    <option>Digital Marketing Internships</option>
+                    <option>Web Development Internships</option>
+                    <option>Data Science/Data Analyst Internships</option>
+                    <option>Cybersecurity Internships</option>
+                    <option>HR Internships</option>
+                    <option>Finance Analyst Internships</option>
+                    <option>Sales Internships</option>
+                    <option>Portfolio Management Internships</option>
+                    <option>Software Development and Information Technology Internships</option>
+                </select>
+
+                <label>Internship Tenure (months)</label>
+                <input type="number" id="tenure" min="1" placeholder="e.g. 6" required />
+
+                <label>Organization Token (Optional)</label>
+                <input type="text" id="token" />
+
+                <div class="identity-section">
+                    <label><input type="radio" name="identityType" value="aadhar" /> Aadhar (India)</label>
+                    <label><input type="radio" name="identityType" value="passport" /> Passport (Foreign)</label>
+                </div>
+
+                <div id="aadharInput" class="identity-input">
+                    <label>Aadhar Number</label>
+                    <input type="text" id="aadhar" maxlength="12" pattern="[0-9]{12}" placeholder="12-digit number" />
+                    <label>Aadhar Card Photo</label>
+                    <input type="file" id="aadharFile" accept="image/*" />
+                </div>
+
+                <div id="passportInput" class="identity-input">
+                    <label>Passport Number</label>
+                    <input type="text" id="passport" maxlength="9" placeholder="e.g. N1234567" />
+                    <label>Passport Photo</label>
+                    <input type="file" id="passportFile" accept="image/*" />
+                </div>
+
+                <div class="error" id="errorMsg"></div>
+                <button type="submit">Create Account</button>
+
+                <div class="footer">
+                    <p>Already have an account? <a href="login.html">Login here</a></p>
+                </div>
+            </form>
         </div>
-    </section>
-
-    <!-- Footer Container -->
-    <div id="footer-container"></div>
-
-    <!-- Bootstrap JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <!-- Image Fallback Handler -->
-    <script src="js/image-fallback.js"></script>
-    <!-- Components JS -->
-    <script src="js/components.js"></script>
-    <!-- Custom JS -->
-    <script src="js/script.js"></script>
-    <script src="js/ticker.js"></script>
-    <script src="js/floating-button.js"></script>
+    </div>
 
     <script>
+        const form = document.getElementById('signupForm');
+        const errorMsg = document.getElementById('errorMsg') || (() => { const d = document.createElement('div'); d.id = 'errorMsg'; form.prepend(d); return d; })();
 
-        
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-    const navbar = document.getElementById('navbar-container');
+        document.querySelectorAll('input[name="identityType"]').forEach(r => r.addEventListener('change', function () {
+            document.getElementById('aadharInput').style.display = this.value === 'aadhar' ? 'block' : 'none';
+            document.getElementById('passportInput').style.display = this.value === 'passport' ? 'block' : 'none';
+        }));
 
-    function openMenu() {
-      hamburger.classList.add('active');
-      navLinks.classList.add('active');
-      hamburger.setAttribute('aria-expanded', 'true');
-      navLinks.setAttribute('aria-hidden', 'false');
-    }
-    function closeMenu() {
-      hamburger.classList.remove('active');
-      navLinks.classList.remove('active');
-      hamburger.setAttribute('aria-expanded', 'false');
-      navLinks.setAttribute('aria-hidden', 'true');
-    }
-    function toggleMenu() {
-      if (navLinks.classList.contains('active')) closeMenu(); else openMenu();
-    }
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            errorMsg.textContent = '';
 
-    hamburger.addEventListener('click', (e) => {
-      e.stopPropagation();
-      toggleMenu();
-    });
+            const fd = new FormData();
+            // required fields
+            fd.append('firstName', form.firstName.value.trim());
+            fd.append('lastName', form.lastName.value.trim());
+            fd.append('username', form.username.value.trim());
+            fd.append('email', form.email.value.trim());
+            fd.append('mobile', form.mobile.value.trim());
+            fd.append('whatsApp', form.whatsApp.value.trim());
+            fd.append('password', form.password.value);
+            fd.append('skills', form.skills.value);
+            fd.append('status', form.status.value);
+            fd.append('education', form.education.value);
+            fd.append('category', form.category.value);
+            fd.append('tenure', form.tenure.value);
+            fd.append('token', form.token.value);
 
-    // close if user clicks outside the navbar
-    document.addEventListener('click', (e) => {
-      if (!navbar.contains(e.target) && navLinks.classList.contains('active')) {
-        closeMenu();
-      }
-    });
+            if (form.profilePic.files.length) fd.append('profilePic', form.profilePic.files[0]);
 
-    // close on Esc
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && navLinks.classList.contains('active')) closeMenu();
-    });
+            const identityType = form.querySelector('input[name="identityType"]:checked')?.value || '';
+            fd.append('identityType', identityType);
 
-    // optional: close when a link is clicked (useful for single-page apps)
-    navLinks.addEventListener('click', (e) => {
-      if (e.target.tagName === 'LI' && window.innerWidth <= 768) closeMenu();
-    });
+            if (identityType === 'aadhar') {
+                fd.append('aadhar', form.aadhar.value);
+                if (form.aadharFile.files.length) fd.append('adhaar', form.aadharFile.files[0]); // note: back-end expects 'adhaar' file field
+            } else if (identityType === 'passport') {
+                fd.append('passport', form.passport.value);
+                if (form.passportFile.files.length) fd.append('passport', form.passportFile.files[0]);
+            }
+
+            try {
+                const res = await fetch('http://localhost:5000/api/auth/signup', {
+                    method: 'POST',
+                    body: fd
+                });
+                const data = await res.json();
+                if (data.success) {
+                    alert("Account created successfully");
+                    
+                } else {
+                    errorMsg.textContent = data.message || 'Signup failed';
+                }
+                
+            } catch (err) {
+                console.error(err);
+                errorMsg.textContent = 'Cannot reach server';
+            }
+        });
+    </script>
+
+    <!-- Firebase SDKs -->
+    <script type="module">
+        // Import Firebase SDK modules
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+
+        // Your Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBazM-jidXQ16nBDPV2u17o96zxoNMfADw",
+            authDomain: "internboot2025.firebaseapp.com",
+            projectId: "internboot2025",
+            storageBucket: "internboot2025.firebasestorage.app",
+            messagingSenderId: "527155149561",
+            appId: "1:527155149561:web:4fedcfb9119f0e40450028",
+            measurementId: "G-BNGR3S0GFS"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            errorMsg.textContent = '';
+
+            const email = form.email.value.trim();
+            const password = form.password.value;
+
+            try {
+                // Step 1: Create Firebase User
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+
+                // Step 2: Send email verification
+                await sendEmailVerification(user);
+                alert("Verification email sent! Please check your inbox.");
+
+                // Step 3: Prepare data for your backend
+                const fd = new FormData(form);
+                fd.append('firebaseUid', user.uid);
+
+                // Step 4: Save user profile in your backend
+                const res = await fetch('http://localhost:5000/api/auth/signup', {
+                    method: 'POST',
+                    body: fd
+                });
+
+                const data = await res.json();
+                if (data.success) {
+                    alert("Account created! Verify your email before logging in.");
+                    form.reset();
+                } else {
+                    errorMsg.textContent = data.message || "Signup failed on server.";
+                }
+
+            } catch (error) {
+                console.error(error);
+                errorMsg.textContent = error.message;
+            }
+        });
     </script>
 </body>
 
