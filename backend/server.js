@@ -9,13 +9,7 @@ const saltRounds=10;
 
 
 const app = express();
-app.use(cors({
-    origin: [
-        "https://internboot1-woij.vercel.app/",  // YOUR FRONTEND
-        "http://localhost:3000"
-    ],
-    credentials: true,
-}));
+app.use(cors());
 app.use(express.json());
 app.use("/uploads", express.static("uploads"));
 

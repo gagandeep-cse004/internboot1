@@ -285,7 +285,7 @@
   `;
 
             // Send to backend
-            fetch("http://localhost:5000/api/exam1/submit", {
+            fetch("https://internboot1-2.onrender.com/api/exam1/submit", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ username, score, percent, passed: pass }),

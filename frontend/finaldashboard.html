@@ -426,7 +426,7 @@
                     }
 
                     try {
-                        const res = await fetch(`http://localhost:5000/api/user/${userData.id}`);
+                        const res = await fetch(`https://internboot1-2.onrender.com/api/user/${userData.id}`);
                         const data = await res.json();
 
                         if (data.success) {
@@ -471,7 +471,7 @@
 
                     try {
                         // Fetch full details for the logged-in user
-                        const res = await fetch(`http://localhost:5000/api/user/${storedUser.id}`);
+                        const res = await fetch(`https://internboot1-2.onrender.com/api/user/${storedUser.id}`);
                         const data = await res.json();
 
                         if (data.success) {
@@ -482,7 +482,7 @@
                             // ✅ Sidebar Profile Picture
                             const sidebarPic = document.querySelector('#sidebarProfilePic');
                             if (user.profilePic) {
-                                sidebarPic.src = `http://localhost:5000/${user.profilePic}`;
+                                sidebarPic.src = `https://internboot1-2.onrender.com/${user.profilePic}`;
                             } else {
                                 sidebarPic.src = 'https://via.placeholder.com/100';
                             }
@@ -509,7 +509,7 @@
                     document.getElementById("feedbackInput").value = "";
 
                     //   (Optional) Send to backend
-                    fetch("http://localhost:5000/api/feedback", {
+                    fetch("https://internboot1-2.onrender.com/api/feedback", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({ feedback }),
@@ -550,7 +550,7 @@
         }
 
         try {
-            const res = await fetch(`http://localhost:5000/api/exam1/status/${userId}`);
+            const res = await fetch(`https://internboot1-2.onrender.com/api/exam1/status/${userId}`);
             const data = await res.json();
 
             if (res.status === 404 || !data.eligible) {
@@ -563,7 +563,7 @@
             // ✅ Eligible - enable button
             loiButton.disabled = false;
             loiButton.onclick = () => {
-                window.location.href = `http://localhost:5000/api/exam1/loi/${userId}`;
+                window.location.href = `https://internboot1-2.onrender.com/api/exam1/loi/${userId}`;
             };
 
         } catch (err) {
