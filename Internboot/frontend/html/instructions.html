@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Exam Instructions | InternBoot</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, #002b8b, #007bff);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .container {
+            background: #fff;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 700px;
+            padding: 30px 40px;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #003b9a;
+        }
+
+        ul {
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: block;
+            margin: 30px auto 0 auto;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #0043c6, #007bff);
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .note {
+            margin-top: 20px;
+            background: #e6f0ff;
+            padding: 15px;
+            border-left: 5px solid #0043c6;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Exam-1 Instructions</h2>
+        <ul>
+            <li>This exam consists of <strong>50 multiple-choice questions (MCQs)</strong>.</li>
+            <li>Total time for the exam is <strong>30 minutes</strong>.</li>
+            <li>Each question has only one correct answer.</li>
+            <li>Do not refresh the page during the exam, or your progress may be lost.</li>
+            <li>You can navigate between questions using the <strong>Next</strong> and <strong>Previous</strong>
+                buttons.</li>
+            <li>Answers will be saved automatically as you select them.</li>
+            <li>Submit the exam before the time ends. Once submitted, you cannot change your answers.</li>
+            <li>A score of 30% or more is required to pass the exam.</li>
+        </ul>
+        <div class="note">
+            <strong>Note:</strong> Make sure your internet connection is stable. Your results will saved after submission.
+        </div>
+        <button class="btn" onclick="startExam()">Ready to begin</button>
+    </div>
+
+    <script>
+        function startExam() {
+            // Redirect to the exam page
+            window.location.href = "exam1.html"; 
+        }
+    </script>
+</body>
+
+</html>

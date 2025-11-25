@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InternBoot | Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 900px) {
+            .wrapper {
+                flex-direction: column;
+            }
+
+            .left-panel {
+                padding: 30px;
+            }
+
+            .left-panel h2 {
+                font-size: 22px;
+            }
+
+            .left-panel img {
+                width: 70px;
+                height: 70px;
+            }
+
+            .right-panel {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .left-panel {
+                padding: 25px;
+            }
+
+            .right-panel {
+                padding: 20px;
+            }
+
+            .right-panel h3 {
+                font-size: 20px;
+            }
+
+            input,
+            select {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            button {
+                padding: 12px;
+                font-size: 16px;
+            }
+
+            .identity-section {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, #002b8b, #007bff);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wrapper {
+            display: flex;
+            width: 90%;
+            max-width: 900px;
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .left-panel {
+            background: linear-gradient(135deg, #0043c6, #007bff);
+            color: #fff;
+            padding: 40px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .left-panel img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            background: #fff;
+            padding: 8px;
+        }
+
+        .right-panel {
+            flex: 1.2;
+            padding: 40px;
+        }
+
+        .right-panel h3 {
+            color: #003b9a;
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin-top: 5px;
+            font-size: 15px;
+        }
+
+        .password-container {
+            position: relative;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #666;
+            font-size: 13px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 25px;
+            background: linear-gradient(135deg, #0043c6, #007bff);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #003ba8, #0066d9);
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 13px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 13px;
+        }
+
+        .footer a {
+            color: #0056b3;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .forgot {
+            text-align: right;
+            margin-top: 8px;
+        }
+
+        .forgot a {
+            color: #0043c6;
+            font-size: 13px;
+            text-decoration: none;
+        }
+
+        .forgot a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="left-panel">
+            <img src="https://media.licdn.com/dms/image/v2/D560BAQElN8CpYuEpAQ/company-logo_200_200/B56Zl16MEPJ4AI-/0/1758619812617/internboot_logo?e=2147483647&v=beta&t=qmQo26wvIvOf8hOg-MNLHH7TBUdAsyTXBr7EyL6BCXk"
+                alt="Logo" />
+            <h2>Welcome Back!</h2>
+            <p>Login to continue your journey<br />with InternBoot.</p>
+        </div>
+
+        <div class="right-panel">
+            <h3>Login to Your Account</h3>
+            <form id="loginForm">
+                <label>Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required />
+
+                <label>Password</label>
+                <div class="password-container">
+                    <input type="password" id="password" placeholder="Enter your password" required />
+                    <span class="toggle-password" id="togglePassword">Show</span>
+                </div>
+
+                <div class="forgot">
+                    <a href="#" id="forgotPasswordLink">Forgot Password?</a>
+                </div>
+
+                <div class="error" id="errorMsg"></div>
+                <button type="submit">Login</button>
+
+                <div class="footer">
+                    <p>Don't have an account? <a href="sign.html">Create one</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Firebase Auth Integration -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+        import {
+            getAuth,
+            signInWithEmailAndPassword,
+            sendPasswordResetEmail,
+            signOut,
+        } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+
+        // Firebase config
+        const firebaseConfig = {
+            apiKey: "AIzaSyBazM-jidXQ16nBDPV2u17o96zxoNMfADw",
+            authDomain: "internboot2025.firebaseapp.com",
+            projectId: "internboot2025",
+            storageBucket: "internboot2025.firebasestorage.app",
+            messagingSenderId: "527155149561",
+            appId: "1:527155149561:web:4fedcfb9119f0e40450028",
+            measurementId: "G-BNGR3S0GFS"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Run after DOM fully loaded
+        window.addEventListener("DOMContentLoaded", () => {
+            const form = document.getElementById("loginForm");
+            const emailInput = document.getElementById("email");
+            const passwordInput = document.getElementById("password");
+            const togglePassword = document.getElementById("togglePassword");
+            const forgotLink = document.getElementById("forgotPasswordLink");
+            const errorMsg = document.getElementById("errorMsg");
+
+            // ✅ Toggle password visibility
+            togglePassword.addEventListener("click", () => {
+                const type = passwordInput.type === "password" ? "text" : "password";
+                passwordInput.type = type;
+                togglePassword.textContent = type === "password" ? "Show" : "Hide";
+            });
+
+            // ✅ Login handler
+            form.addEventListener("submit", async (e) => {
+                e.preventDefault();
+                errorMsg.textContent = "";
+
+                const email = emailInput.value.trim();
+                const password = passwordInput.value;
+
+                console.log("Email:", email, "Password length:", password.length); // Debug
+
+                if (!email || !password) {
+                    errorMsg.textContent = "⚠ Please fill in both fields.";
+                    return;
+                }
+
+                try {
+                    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                    const user = userCredential.user;
+
+                   
+
+                    // Optional backend verification
+                    try {
+                        
+                        const data = await res.json();
+                        if (data.success) {
+                            localStorage.setItem("user", JSON.stringify(data.user));
+                            alert("✅ Login successful!");
+                            window.location.href = "Dashboard.html";
+                        } else {
+                            errorMsg.textContent = data.message || "Backend login failed.";
+                        }
+                    } catch (err) {
+                        console.warn("Backend not reachable:", err);
+                        alert("✅ Firebase login successful");
+                        window.location.href = "Dashboard.html";
+                    }
+
+                } catch (error) {
+                    console.error("Firebase login error:", error.code, error.message);
+                    if (error.code === "auth/user-not-found") errorMsg.textContent = "❌ No user found with this email.";
+                    else if (error.code === "auth/wrong-password") errorMsg.textContent = "❌ Incorrect password.";
+                    else if (error.code === "auth/invalid-email") errorMsg.textContent = "❌ Invalid email format.";
+                    else if (error.code === "auth/too-many-requests") errorMsg.textContent = "⚠ Too many attempts, try again later.";
+                    else errorMsg.textContent = "❌ " + error.message;
+                }
+            });
+
+            // ✅ Forgot password
+            forgotLink.addEventListener("click", async (e) => {
+                e.preventDefault();
+                const email = prompt("Enter your registered email to reset password:");
+                if (!email) return;
+                try {
+                    await sendPasswordResetEmail(auth, email);
+                    alert("✅ Password reset link sent! Check your inbox.");
+                } catch (error) {
+                    console.error(error);
+                    alert("❌ " + error.message);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

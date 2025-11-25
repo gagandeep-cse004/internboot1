@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Dashboard - Internboot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#2563eb',
+                        'secondary': '#1e40af',
+                        'accent': '#f59e0b',
+                        'success': '#10b981',
+                        'danger': '#ef4444',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="font-inter bg-gray-50">
+    <!-- Dashboard Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex items-center space-x-2">
+                        <div class="bg-primary text-white p-2 rounded-lg">
+
+                            <img style="width: 29px;height: 29px;"
+                                src="https://media.licdn.com/dms/image/v2/D560BAQElN8CpYuEpAQ/company-logo_200_200/B56Zl16MEPJ4AI-/0/1758619812617/internboot_logo?e=2147483647&v=beta&t=qmQo26wvIvOf8hOg-MNLHH7TBUdAsyTXBr7EyL6BCXk"
+                                alt="InternBoot Logo" />
+
+                        </div>
+                        <span class="text-xl font-bold text-gray-900">Interboot</span>
+                        <span class="text-sm text-gray-500 ml-2">| Candidate Dashboard</span>
+                    </div>
+                </div>
+
+                <!-- Dashboard Navigation -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#dashboard" class="text-primary font-medium hover:text-secondary transition">
+                        <i class="fas fa-tachometer-alt mr-1"></i>Dashboard
+                    </a>
+                    <a href="#announcements" class="text-gray-700 hover:text-primary transition">
+                        <i class="fas fa-search mr-1"></i>Announcements
+                    </a>
+                    <a href="#results" class="text-gray-700 hover:text-primary transition">
+                        <i class="fas fa-file-alt mr-1"></i>Results
+                    </a>
+                </div>
+
+                <!-- User Profile -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <!-- Notification Bell -->
+                    <div class="relative">
+                        <button class="text-gray-700 hover:text-primary transition relative notification-btn">
+                            <i class="fas fa-bell text-lg"></i>
+                            <span
+                                class="absolute -top-1 -right-1 bg-danger text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">5</span>
+                        </button>
+                        <!-- Notification Dropdown -->
+
+                    </div>
+
+                    <!-- User Info Display -->
+                    <div id="userInfo" class="hidden md:block">
+                        <!-- User info will be populated by Firebase authentication -->
+                    </div>
+
+                    <!-- User Profile Dropdown -->
+                    <div class="relative group">
+                        <button class="flex items-center space-x-2 text-gray-700 hover:text-primary transition">
+                            <div
+                                class="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
+                                <i class="fas fa-user text-white text-sm"></i>
+                            </div>
+                            <span class="font-medium">Account</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div
+                            class="absolute top-full right-0 mt-2 w-48 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                            <a href="profile.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">My Profile</a>
+
+                            <a href="#" onclick="openHelpModal()"
+                                class="block px-4 py-2 text-gray-700 hover:bg-gray-50">
+                                Help
+                            </a>
+
+                            <div class="border-t"></div>
+                            <a href="../index.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">
+                                <i class="fas fa-home mr-2"></i>Back to Website
+                            </a>
+                            <button id="logoutBtn"
+                                class="block w-full text-left px-4 py-2 text-red-600 hover:bg-red-50"><a href="login.html">Sign Out</a>
+                                <i class="fas fa-sign-out-alt mr-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-primary">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="px-4 py-2 space-y-2">
+                <a href="#dashboard" class="block py-2 text-primary font-medium">
+                    <i class="fas fa-tachometer-alt mr-2"></i>Dashboard
+                </a>
+                <a href="#jobs" class="block py-2 text-gray-700">
+                    <i class="fas fa-search mr-2"></i>Find Jobs
+                </a>
+                <a href="#applications" class="block py-2 text-gray-700">
+                    <i class="fas fa-file-alt mr-2"></i>Applications
+                </a>
+                <a href="#profile" class="block py-2 text-gray-700">
+                    <i class="fas fa-user mr-2"></i>Profile
+                </a>
+                <div class="border-t pt-2 mt-2">
+                    <a href="profile.html" class="block py-2 text-gray-700">My Profile</a>
+                    <a href="../index.html" class="block py-2 text-gray-700">Back to Website</a>
+                    <a href="../admin-login.html" class="block py-2 text-red-600 w-full text-left">Sign Out</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Container -->
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <div class="w-64 bg-white shadow-lg">
+            <div class="p-6">
+                <div class="flex items-center space-x-3 mb-8">
+                    <img id="sidebarProfilePic" src="" alt="Profile" class="w-12 h-12 rounded-full">
+
+                </div>
+
+                <nav class="space-y-2">
+                    <a href="#overview"
+                        class="dashboard-nav-link active flex items-center space-x-3 px-4 py-3 text-primary bg-blue-50 rounded-lg">
+                        <i class="fas fa-chart-pie"></i>
+                        <span>Home</span>
+                    </a>
+                    <a href="https://discord.gg/a9YAVcH2"
+                        class="dashboard-nav-link flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg">
+                        <i class="fa-brands fa-discord"></i>
+                        <span>Discord</span>
+                    </a>
+
+                    <a href="https://meet.google.com/qkc-hvyn-xor  "
+                        class="dashboard-nav-link flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg">
+                        <?xml version="1.0"?><svg height="18px" viewBox="0 0 48 48" width="18px"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <rect fill="#fff" height="16" transform="rotate(-90 20 24)" width="16" x="12" y="16" />
+                            <polygon fill="#1e88e5" points="3,17 3,31 8,32 13,31 13,17 8,16" />
+                            <path d="M37,24v14c0,1.657-1.343,3-3,3H13l-1-5l1-5h14v-7l5-1L37,24z" fill="#4caf50" />
+                            <path d="M37,10v14H27v-7H13l-1-5l1-5h21C35.657,7,37,8.343,37,10z" fill="#fbc02d" />
+                            <path d="M13,31v10H6c-1.657,0-3-1.343-3-3v-7H13z" fill="#1565c0" />
+                            <polygon fill="#e53935" points="13,7 13,17 3,17" />
+                            <polygon fill="#2e7d32" points="38,24 37,32.45 27,24 37,15.55" />
+                            <path
+                                d="M46,10.11v27.78c0,0.84-0.98,1.31-1.63,0.78L37,32.45v-16.9l7.37-6.22C45.02,8.8,46,9.27,46,10.11z"
+                                fill="#4caf50" />
+                        </svg>
+                        <span>Google Meet</span>
+                    </a>
+
+                    <!-- Progress Button -->
+                    <a href="#" id="openProgressModal"
+                        class="dashboard-nav-link flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg">
+                        <i class="fa-solid fa-bars-progress"></i>
+                        <span>Progress</span>
+                    </a>
+
+                    <!-- Popup Modal -->
+                    <div id="progressModal"
+                        class="fixed inset-0 z-50 hidden bg-black bg-opacity-50 flex items-center justify-center">
+                        <div class="bg-white rounded-lg shadow-xl w-11/12 max-w-3xl relative animate-fadeIn">
+                            <!-- Close Button -->
+                            <button id="closeProgressModal"
+                                class="absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
+
+                            <!-- Modal Header -->
+                            <div class="p-6 border-b border-gray-200">
+                                <h2 class="text-xl font-semibold text-gray-900">Intern Dashboard</h2>
+                                <p class="text-gray-500 text-sm">Overview of your overall progress and attendance</p>
+                            </div>
+
+                            <!-- Modal Content -->
+                            <div class="p-6 space-y-8">
+                                <!-- Progress Section -->
+                                <div>
+                                    <h3 class="text-lg font-medium text-gray-800 mb-3">Progress</h3>
+                                    <div class="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
+                                        <div class="bg-blue-500 h-4 rounded-full transition-all duration-700"
+                                            style="width: 0%;"></div>
+                                    </div>
+                                    <p class="text-sm text-gray-600 mt-2">0% completed (updated by instructor)</p>
+                                </div>
+
+                                <!-- Attendance Section -->
+                                <div>
+                                    <h3 class="text-lg font-medium text-gray-800 mb-3">Attendance</h3>
+                                    <div class="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
+                                        <div class="bg-green-500 h-4 rounded-full transition-all duration-700"
+                                            style="width: 0%;"></div>
+                                    </div>
+                                    <p class="text-sm text-gray-600 mt-2">0% attendance (updated by instructor)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- JavaScript -->
+                    <script>
+                        const openModalBtn = document.getElementById('openProgressModal');
+                        const closeModalBtn = document.getElementById('closeProgressModal');
+                        const modal = document.getElementById('progressModal');
+
+                        openModalBtn.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            modal.classList.remove('hidden');
+                        });
+
+                        closeModalBtn.addEventListener('click', () => {
+                            modal.classList.add('hidden');
+                        });
+
+                        modal.addEventListener('click', (e) => {
+                            if (e.target === modal) modal.classList.add('hidden');
+                        });
+                    </script>
+
+                    <!-- Tailwind Fade Animation -->
+                    <style>
+                        @keyframes fadeIn {
+                            from {
+                                opacity: 0;
+                                transform: scale(0.95);
+                            }
+
+                            to {
+                                opacity: 1;
+                                transform: scale(1);
+                            }
+                        }
+
+                        .animate-fadeIn {
+                            animation: fadeIn 0.3s ease-out;
+                        }
+                    </style>
+
+                    
+                </nav>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-8">
+            <!-- Overview Section -->
+            <div id="overview" class="dashboard-section">
+                <!-- Header -->
+                
+                <div class="flex items-center justify-between mb-8">
+                    <div>
+                        <h1 class="text-3xl font-bold text-gray-900">Welcome back, John!</h1>
+                        <p class="text-gray-600 mt-1">Here's your progress and recent activities in internboot.</p>
+                    </div>
+                </div>
+                <!-- Stats Cards -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <!-- 🧍 User Details Card -->
+                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex flex-col space-y-3">
+                            <p class="text-2xl font-bold text-gray-900">Details</p>
+                            <div class="text-gray-700 space-y-1">
+                                <p><span class="font-semibold">Phone:</span> <span id="userPhone">+91 9876543210</span>
+                                </p>
+                                <p><span class="font-semibold">Email:</span> <span
+                                        id="userEmail">user@example.com</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 🧠 Skills Card -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-2xl font-bold text-gray-900">Skills</p><br>
+                                <p class="text-sm text-gray-600"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 🌐 Social Media Card -->
+                    <div
+                        class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-all duration-300">
+                        <p class="text-2xl font-bold text-gray-900 mb-6">Follow Us</p>
+                        <div class="flex justify-center space-x-6 text-gray-500">
+                            <a href="https://www.instagram.com/internboot_official" target="_blank"
+                                class="hover:text-pink-500 transform hover:scale-125 transition-all duration-300">
+                                <i class="fa-brands fa-instagram text-3xl"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/showcase/internboot/" target="_blank"
+                                class="hover:text-blue-600 transform hover:scale-125 transition-all duration-300">
+                                <i class="fa-brands fa-linkedin text-3xl"></i>
+                            </a>
+
+                            <a href="https://twitter.com" target="_blank"
+                                class="hover:text-blue-700 transform hover:scale-125 transition-all duration-300">
+                                <i class="fa-brands fa-twitter text-3xl"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 💬 Feedback Card -->
+                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+                        <p class="text-2xl font-bold text-gray-900 mb-4">Feedback</p>
+                        <textarea id="feedbackInput" placeholder="Share your thoughts..."
+                            class="w-full h-24 border border-gray-300 rounded-lg px-3 py-2 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-green-400 transition"></textarea>
+                        <button type="submit" onclick="saveFeedback()"
+                            class="mt-3 w-full bg-green-500 text-white px-5 py-2 rounded-lg hover:bg-green-600 active:scale-95 transition-all">
+                            Submit
+                        </button>
+                        <p id="feedbackMsg" class="text-sm text-gray-500 mt-2 hidden">Thanks for your feedback 💚</p>
+                    </div>
+
+                </div>
+
+                <!-- Recent Applications & Recommended Jobs -->
+
+                <!-- Quick Actions -->
+                <div class="mt-8">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+
+                        <a href="../img/certificate.jpg"
+                            class="bg-green-500 text-white p-4 rounded-lg hover:bg-green-600 transition text-center">
+                            <i class="fas fa-file-pdf text-2xl mb-2"></i>
+                            <p class="font-medium">Certificate</p>
+                        </a>
+                        <a href="edit.html"
+                            class="bg-purple-500 text-white p-4 rounded-lg hover:bg-purple-600 transition text-center flex flex-col items-center justify-center">
+                            <i class="fas fa-user-edit text-2xl mb-2"></i>
+                            <p class="font-medium">Edit Profile</p>
+                        </a>
+                        <button
+                            class="bg-orange-500 text-white p-4 rounded-lg hover:bg-orange-600 transition text-center">
+                            <i class="fas fa-book text-2xl mb-2"></i>
+                            <p class="font-medium">Course</p>
+                        </button>
+                        <!-- LOI Button Section -->
+                        <button id="downloadLoiBtn"
+                            class="bg-green-500 text-white p-4 rounded-lg hover:bg-green-600 transition text-center disabled:bg-gray-400 disabled:cursor-not-allowed">
+                            <i class="fas fa-book text-2xl mb-2"></i>
+                            <p class="font-medium">Download LOI</p>
+                        </button>
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- help Section -->
+            <!-- Help Modal -->
+            <div id="helpModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+                <div class="bg-white rounded-2xl shadow-xl p-6 w-80 sm:w-96 text-center relative">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Need Help?</h2>
+
+                    <p class="text-gray-600 mb-2">📧 Email us at:</p>
+                    <a href="mailto:support@internboot.in" class="text-blue-600 font-medium hover:underline">
+                        contactus@gmail.com
+                    </a>
+
+                    <p class="text-gray-600 mt-4 mb-2">📞 Call us at:</p>
+                    <a href="tel:+919876543210" class="text-blue-600 font-medium hover:underline">
+                        +91 98765 43210
+                    </a>
+
+                    <p class="text-gray-500 mt-4 text-sm">
+                        Available: Mon–Sat, 9:00 AM – 7:00 PM
+                    </p>
+
+                    <button onclick="closeHelpModal()"
+                        class="mt-6 w-full bg-indigo-500 text-white py-2 rounded-lg hover:bg-indigo-600 transition">
+                        Close
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- JavaScript -->
+
+            <script>
+                document.addEventListener('DOMContentLoaded', async () => {
+                    const userData = JSON.parse(localStorage.getItem('user'));
+
+                    if (!userData) {
+                        alert("Please login first");
+                        window.location.href = 'login.html';
+                        return;
+                    }
+
+                    try {
+                        const res = await fetch(`http://localhost:5000/api/user/${userData.id}`);
+                        const data = await res.json();
+
+                        if (data.success) {
+                            const user = data.user;
+
+                            // Update profile sidebar
+                            document.querySelector(".w-12.h-12.rounded-full").src = user.profilePic || "https://via.placeholder.com/100";
+
+                            document.querySelector(".text-sm.text-gray-600").textContent = user.skills || "No skills added";
+
+                            // Update main welcome text
+                            document.querySelector("h1.text-3xl.font-bold.text-gray-900").textContent = `Welcome back, ${user.firstName}!`;
+
+                            // Update details card
+                            const detailCard = document.querySelector(".bg-white.rounded-lg.shadow-md.p-6");
+                            detailCard.innerHTML = `
+                    <p class="text-2xl font-bold text-gray-900">Details</p><br>
+                    <p><b>Phone:</b> ${user.mobile || 'N/A'}</p><br>
+                    <p><b>Email:</b> ${user.email}</p>
+                `;
+                        } else {
+                            alert("Unable to fetch user details.");
+                        }
+                    } catch (error) {
+                        console.error("Error loading user details:", error);
+                        alert("Error fetching user data");
+                    }
+
+                    // Logout button
+                    document.getElementById("logoutBtn")?.addEventListener("click", () => {
+                        localStorage.removeItem('user');
+                        window.location.href = 'login.html';
+                    });
+                });
+
+                document.addEventListener('DOMContentLoaded', async () => {
+                    const storedUser = JSON.parse(localStorage.getItem('user'));
+                    if (!storedUser || !storedUser.id) {
+                        window.location.href = 'login.html';
+                        return;
+                    }
+
+                    try {
+                        // Fetch full details for the logged-in user
+                        const res = await fetch(`http://localhost:5000/api/user/${storedUser.id}`);
+                        const data = await res.json();
+
+                        if (data.success) {
+                            const user = data.user;
+                            // Update welcome text
+                            document.querySelector('h1').textContent = `Welcome back, ${user.firstName}!`;
+
+                            // ✅ Sidebar Profile Picture
+                            const sidebarPic = document.querySelector('#sidebarProfilePic');
+                            if (user.profilePic) {
+                                sidebarPic.src = `http://localhost:5000/${user.profilePic}`;
+                            } else {
+                                sidebarPic.src = 'https://via.placeholder.com/100';
+                            }
+                        }
+                    } catch (error) {
+                        console.error('Error fetching user:', error);
+                    }
+                });
+
+
+
+                // Render buttons
+                function saveFeedback() {
+                    const feedback = document.getElementById("feedbackInput").value.trim();
+                    const msg = document.getElementById("feedbackMsg");
+
+                    if (!feedback) {
+                        alert("Please enter your feedback!");
+                        return;
+                    }
+
+                    msg.classList.remove("hidden");
+                    msg.textContent = " Thanks for your feedback!";
+                    document.getElementById("feedbackInput").value = "";
+
+                    //   (Optional) Send to backend
+                    fetch("http://localhost:5000/api/feedback", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ feedback }),
+                    });
+
+                }
+
+
+
+                function openHelpModal() {
+                    const modal = document.getElementById("helpModal");
+                    modal.classList.remove("hidden");
+                    modal.classList.add("flex");
+                }
+
+                function closeHelpModal() {
+                    const modal = document.getElementById("helpModal");
+                    modal.classList.add("hidden");
+                    modal.classList.remove("flex");
+                }
+
+                // Optional: close modal if user clicks outside the box
+                window.addEventListener("click", (e) => {
+                    const modal = document.getElementById("helpModal");
+                    if (e.target === modal) closeHelpModal();
+                });
+
+    document.addEventListener("DOMContentLoaded", async () => {
+        const user = JSON.parse(localStorage.getItem("user"));
+        const userId = user?.id;
+        const loiButton = document.getElementById("downloadLoiBtn");
+
+        // If no user found - disable button
+        if (!userId) {
+            loiButton.disabled = true;
+            loiButton.onclick = () => alert("Please log in to download LOI.");
+            return;
+        }
+
+        try {
+            const res = await fetch(`http://localhost:5000/api/exam1/status/${userId}`);
+            const data = await res.json();
+
+            if (res.status === 404 || !data.eligible) {
+                // Not eligible
+                loiButton.disabled = true;
+                loiButton.onclick = () => alert("You are not eligible to download the LOI yet.");
+                return;
+            }
+
+            // ✅ Eligible - enable button
+            loiButton.disabled = false;
+            loiButton.onclick = () => {
+                window.location.href = `http://localhost:5000/api/exam1/loi/${userId}`;
+            };
+
+        } catch (err) {
+            console.error("❌ Fetch error:", err);
+            loiButton.disabled = true;
+            loiButton.onclick = () => alert("Error fetching eligibility. Please try again later.");
+        }
+    });
+            </script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+</body>
+
+</html>

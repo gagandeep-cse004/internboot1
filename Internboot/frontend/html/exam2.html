@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Exam 2 | InternBoot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, #002b8b, #007bff);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .container {
+            background: #fff;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            padding: 30px 40px;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #003b9a;
+        }
+
+        .question {
+            margin-top: 20px;
+        }
+
+        .options label {
+            display: block;
+            margin: 5px 0;
+        }
+
+        .btn {
+            margin-top: 25px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #0043c6, #007bff);
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        #timer {
+            text-align: right;
+            font-weight: 600;
+            color: #c00;
+        }
+
+        .result {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        /* dashboard button */
+        .dashboard-button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        /* Remove the default link styling for the anchor tag inside the button */
+        .dashboard-button a {
+            color: inherit;
+            /* Inherit the text color from the parent button */
+            text-decoration: none;
+            /* Remove the underline */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>InternBoot - Exam 2</h2>
+        <div id="timer">Time Left: 30:00</div>
+        <form id="examForm"></form>
+        <button class="btn" id="submitBtn">Submit Exam</button>
+        <div id="result" class="result"></div>
+    </div>
+
+
+    <script>
+        // Questions
+        const questions = [
+            { q: "1. Find the next number: 2, 5, 10, 17, 26, …", a: ["35", "36", "37", "38"], correct: 2 },
+            { q: "2. Series: 3, 6, 12, 24, …", a: ["36", "48", "50", "60"], correct: 1 },
+            { q: "3. 5, 10, 20, 40, …", a: ["60", "70", "80", "100"], correct: 2 },
+            { q: "4. 1, 1, 2, 6, 24, …", a: ["24", "60", "120", "720"], correct: 2 },
+            { q: "5. 2, 4, 8, 16, …", a: ["24", "30", "32", "28"], correct: 2 },
+            { q: "6. Find odd one: 2, 4, 8, 16, 18", a: ["2", "4", "16", "18"], correct: 2 },
+            { q: "7. Find odd one: 21, 34, 55, 78, 91", a: ["21", "34", "78", "55"], correct: 2 },
+            { q: "8. 7, 11, 13, 17, 21", a: ["7", "13", "21", "17"], correct: 2 },
+            { q: "9. 64, 32, 16, 8, 5", a: ["64", "32", "5", "16"], correct: 2 },
+            { q: "10. Find next in series: 1, 2, 4, 7, 11, …", a: ["15", "16", "18", "17"], correct: 2 },
+            { q: "11. Pointing to a man, Ravi says, 'His mother is my mother's daughter.' How is the man related to Ravi?", a: ["Son", "Brother", "Nephew", "Cousin"], correct: 0 },
+            { q: "12. A walks 5 km North, 3 km East, 2 km South. How far from start?", a: ["3 km", "4 km", "5 km", "6 km"], correct: 1 },
+            { q: "13. X walks 3 km West, 4 km North. Distance from start?", a: ["5 km", "6 km", "7 km", "4 km"], correct: 0 },
+            { q: "14. A is the son of B. C is sister of B. How is C related to A?", a: ["Aunt", "Sister", "Mother", "Cousin"], correct: 0 },
+            { q: "15. Direction: You face North, turn left, right, right. Direction now?", a: ["North", "East", "South", "West"], correct: 2 },
+            { q: "16. Coding: If CAT → DBU, then DOG → ?", a: ["DPH", "EPH", "FPH", "EOG"], correct: 1 },
+            { q: "17. If PEN → QFO, then BOOK → ?", a: ["CPLL", "CPPL", "COOK", "BPPL"], correct: 0 },
+            { q: "18. If A → 1, B → 2, … Z → 26, DOG = ?", a: ["26", "37", "28", "30"], correct: 1 },
+            { q: "19. If 2 + 3 = 10, 3 + 4 = 21, 4 + 5 = ?", a: ["30", "36", "35", "40"], correct: 1 },
+            { q: "20. Find missing: 4, 9, 16, 25, 36, …", a: ["40", "49", "50", "48"], correct: 1 },
+            { q: "21. Series: 2, 3, 5, 8, 12, …", a: ["15", "17", "16", "18"], correct: 1 },
+            { q: "22. 2, 6, 12, 20, 30, …", a: ["36", "40", "42", "48"], correct: 1 },
+            { q: "23. If 7 + 2 = 63, 5 + 3 = 40, 6 + 4 = ?", a: ["45", "50", "48", "46"], correct: 1 },
+            { q: "24. Find odd one: 2, 6, 12, 24, 40", a: ["6", "12", "40", "24"], correct: 2 },
+            { q: "25. Alphabet series: B, D, G, K, ?", a: ["N", "O", "P", "Q"], correct: 2 },
+
+            { q: "26. If all roses are flowers and all flowers are plants, then all roses are plants?", a: ["True", "False", "Cannot say", "None"], correct: 0 },
+            { q: "27. Find odd one: Apple, Mango, Carrot, Banana", a: ["Apple", "Mango", "Carrot", "Banana"], correct: 2 },
+            { q: "28. Complete analogy: Dog : Bark :: Cat : ?", a: ["Meow", "Moo", "Roar", "Neigh"], correct: 0 },
+            { q: "29. Find the word that does not belong: Table, Chair, Spoon, Desk", a: ["Table", "Chair", "Spoon", "Desk"], correct: 2 },
+            { q: "30. If 3 pencils cost ₹15, 8 pencils cost?", a: ["₹35", "₹40", "₹30", "₹25"], correct: 1 },
+            { q: "31. Which number is divisible by 3? 101, 102, 104, 107", a: ["101", "102", "104", "107"], correct: 1 },
+            { q: "32. Synonym of 'Abundant'", a: ["Rare", "Plentiful", "Sparse", "Scarce"], correct: 1 },
+            { q: "33. Antonym of 'Cautious'", a: ["Careful", "Reckless", "Alert", "Mindful"], correct: 1 },
+            { q: "34. Statement: All cats are mammals. Some mammals are dogs. Conclusion?", a: ["Some cats are dogs", "All dogs are cats", "Cannot be determined", "All cats are dogs"], correct: 2 },
+            { q: "35. Find odd: Red, Blue, Yellow, Car", a: ["Red", "Blue", "Yellow", "Car"], correct: 3 },
+            { q: "36. Coding: If FLOWER → GMPXFS, then TREE → ?", a: ["USFF", "USFE", "USFG", "URFF"], correct: 0 },
+            { q: "37. Direction: East is left of North. West of South?", a: ["East", "North", "South", "West"], correct: 0 },
+            { q: "38. Blood Relation: A is brother of B. B is sister of C. C is father of D. How is A related to D?", a: ["Uncle", "Brother", "Cousin", "Father"], correct: 0 },
+            { q: "39. Find missing: 1, 2, 6, 24, 120, …", a: ["600", "720", "7200", "6000"], correct: 1 },
+            { q: "40. Word analogy: Book : Read :: Knife : ?", a: ["Cut", "Eat", "Write", "Cook"], correct: 0 },
+            { q: "41. Complete the series: 1, 4, 9, 16, 25, …", a: ["30", "32", "36", "40"], correct: 2 },
+            { q: "42. Odd one: Square, Rectangle, Circle, Triangle", a: ["Square", "Rectangle", "Circle", "Triangle"], correct: 2 },
+            { q: "43. Synonym: 'Rapid'", a: ["Fast", "Slow", "Weak", "Lazy"], correct: 0 },
+            { q: "44. If APPLE → BQQMF, then ORANGE → ?", a: ["PSBOHF", "PSBNHF", "OSBNHF", "PTSBOF"], correct: 0 },
+            { q: "45. Find missing: 1, 3, 6, 10, 15, …", a: ["18", "20", "21", "22"], correct: 2 },
+            { q: "46. Series: 2, 6, 12, 20, …", a: ["28", "30", "32", "34"], correct: 1 },
+            { q: "47. Coding: CLOCK → DMPDL, then WATCH → ?", a: ["XBDUI", "XBUDI", "XBDTI", "XBDUH"], correct: 0 },
+            { q: "48. Analogy: Hand : Glove :: Foot : ?", a: ["Sock", "Shoe", "Sandal", "Boot"], correct: 1 },
+            { q: "49. Odd one: Lion, Tiger, Dog, Leopard", a: ["Lion", "Tiger", "Dog", "Leopard"], correct: 2 },
+            { q: "50. Complete: 1, 2, 4, 7, 11, …", a: ["15", "16", "18", "17"], correct: 2 }
+        ];
+
+        // DOM Elements
+        const form = document.getElementById("examForm");
+        const timerDiv = document.getElementById("timer");
+        const resultDiv = document.getElementById("result");
+        const submitBtn = document.getElementById("submitBtn");
+
+        // Hide submit initially
+        submitBtn.style.display = "none";
+
+        // Add navigation buttons
+        const navDiv = document.createElement("div");
+        navDiv.style.marginTop = "20px";
+        navDiv.innerHTML = `
+  <button type="button" class="btn" id="prevBtn">Previous</button>
+  <button type="button" class="btn" id="nextBtn">Next</button>
+`;
+        form.after(navDiv);
+
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+
+        // Variables
+        let currentQ = 0;
+        let answers = {};
+
+        // --- Show a question ---
+        function showQuestion(index) {
+            form.innerHTML = ""; // clear previous question
+            const q = questions[index];
+
+            const div = document.createElement("div");
+            div.classList.add("question");
+            div.innerHTML = `<p>${q.q}</p>`;
+
+            const optDiv = document.createElement("div");
+            optDiv.classList.add("options");
+
+            q.a.forEach((ans, j) => {
+                const id = `q${index}_opt${j}`;
+                const checked = answers[index] === j ? "checked" : "";
+                optDiv.innerHTML += `
+      <label>
+        <input type="radio" name="q${index}" value="${j}" id="${id}" ${checked}/> ${ans}
+      </label>
+    `;
+            });
+
+            div.appendChild(optDiv);
+            form.appendChild(div);
+
+            // Update navigation buttons
+            prevBtn.style.display = index === 0 ? "none" : "inline-block";
+            nextBtn.style.display = index === questions.length - 1 ? "none" : "inline-block";
+            submitBtn.style.display = index === questions.length - 1 ? "inline-block" : "none";
+        }
+
+        // --- Save answer ---
+        function saveAnswer() {
+            const selected = form.querySelector("input[type='radio']:checked");
+            if (selected) {
+                answers[currentQ] = parseInt(selected.value);
+            }
+        }
+
+        // --- Navigation ---
+        nextBtn.addEventListener("click", () => {
+            saveAnswer();
+            if (currentQ < questions.length - 1) {
+                currentQ++;
+                showQuestion(currentQ);
+            }
+        });
+
+        prevBtn.addEventListener("click", () => {
+            saveAnswer();
+            if (currentQ > 0) {
+                currentQ--;
+                showQuestion(currentQ);
+            }
+        });
+
+        // --- Timer ---
+        let timeLeft = 30 * 60;
+        const timer = setInterval(() => {
+            timeLeft--;
+            const m = Math.floor(timeLeft / 60);
+            const s = timeLeft % 60;
+            timerDiv.textContent = `Time Left: ${m.toString().padStart(2, "0")}:${s
+                .toString()
+                .padStart(2, "0")}`;
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                submitExam();
+            }
+        }, 1000);
+
+        // --- Submit ---
+        submitBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            saveAnswer();
+            submitExam();
+        });
+
+        function submitExam() {
+            let username = JSON.parse(localStorage.getItem("user"));
+
+            clearInterval(timer);
+            prevBtn.style.display = "none";
+            nextBtn.style.display = "none";
+            submitBtn.disabled = true;
+
+            let score = 0;
+            questions.forEach((q, i) => {
+                if (answers[i] === q.correct) score++;
+            });
+
+            const percent = (score / questions.length) * 100;
+            const pass = percent >= 30;
+
+            resultDiv.innerHTML = `
+    <h3>Your Score: ${score}/${questions.length} (${percent.toFixed(2)}%)</h3>
+    <p>
+      ${pass
+                    ? ` Congratulations! You passed Exam 1. 
+      <br><button id="exam2Button" class="dashboard-button">
+        <a href="dashboard.html">Dashboard</a>
+      </button>`
+                    : ` You did not meet the 30% criteria.`
+                }
+
+    </p>
+    
+  `;
+
+            // Send to backend
+            fetch("http://localhost:5000/api/exam1/submit", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ username, score, percent, passed: pass }),
+            })
+                .then(res => res.json())
+                .then(data => {
+                    alert(data.message); // if already taken, it will show the alert
+                })
+                .catch(err => console.error("Error:", err));
+
+        }
+
+        // --- Initialize first question ---
+        showQuestion(currentQ);
+    </script>
+</body>
+
+</html>

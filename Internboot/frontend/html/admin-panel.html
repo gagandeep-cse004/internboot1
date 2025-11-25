@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - USA EasyNaukri4U</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#2563eb',
+                        'secondary': '#1e40af',
+                        'accent': '#f59e0b',
+                        'success': '#10b981',
+                        'danger': '#ef4444',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter bg-gray-50">
+    <!-- Admin Dashboard Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+            <div class="flex items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="bg-primary text-white p-2 rounded-lg">
+            
+                        <img style="width: 29px;height: 29px;"
+                            src="https://media.licdn.com/dms/image/v2/D560BAQElN8CpYuEpAQ/company-logo_200_200/B56Zl16MEPJ4AI-/0/1758619812617/internboot_logo?e=2147483647&v=beta&t=qmQo26wvIvOf8hOg-MNLHH7TBUdAsyTXBr7EyL6BCXk"
+                            alt="InternBoot Logo" />
+            
+                    </div>
+                    <span class="text-xl font-bold text-gray-900">Interboot</span>
+                    <span class="text-sm text-gray-500 ml-2">| Admin Dashboard</span>
+                </div>
+            </div>
+
+
+                <!-- Admin Dashboard Navigation -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#dashboard" class="text-primary font-medium hover:text-secondary transition">
+                        <i class="fas fa-tachometer-alt mr-1"></i>Dashboard
+                    </a>
+                    <a href="#users" class="text-gray-700 hover:text-primary transition">
+                        <i class="fas fa-users mr-1"></i>Users
+                    </a>
+                    <a href="#jobs" class="text-gray-700 hover:text-primary transition">
+                        <i class="fas fa-briefcase mr-1"></i>Jobs
+                    </a>
+                    <a href="#reports" class="text-gray-700 hover:text-primary transition">
+                        <i class="fas fa-chart-bar mr-1"></i>Reports
+                    </a>
+                    <a href="#settings" class="text-gray-700 hover:text-primary transition">
+                        <i class="fas fa-cog mr-1"></i>Settings
+                    </a>
+                </div>
+
+                <!-- Admin User Profile -->
+                <div class="flex items-center space-x-4">
+                    <!-- Notification Bell -->
+                    <div class="relative">
+                        <button class="text-gray-700 hover:text-primary transition relative notification-btn">
+                            <i class="fas fa-bell text-lg"></i>
+                            <span class="absolute -top-1 -right-1 bg-danger text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">8</span>
+                        </button>
+                        <!-- Notification Dropdown -->
+                        <div class="notification-dropdown hidden absolute top-full right-0 mt-2 w-80 bg-white rounded-lg shadow-lg border z-50">
+                            <div class="p-4 border-b">
+                                <h3 class="font-semibold text-gray-900">Admin Notifications</h3>
+                            </div>
+                            <div class="max-h-64 overflow-y-auto">
+                                <div class="p-4 border-b hover:bg-gray-50">
+                                    <div class="flex items-start space-x-3">
+                                        <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-exclamation-triangle text-red-600 text-sm"></i>
+                                        </div>
+                                        <div class="flex-1">
+                                            <p class="text-sm text-gray-900">System alert: High server load</p>
+                                            <p class="text-xs text-gray-500">1 minute ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-4 border-b hover:bg-gray-50">
+                                    <div class="flex items-start space-x-3">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-user-plus text-blue-600 text-sm"></i>
+                                        </div>
+                                        <div class="flex-1">
+                                            <p class="text-sm text-gray-900">50 new user registrations today</p>
+                                            <p class="text-xs text-gray-500">30 minutes ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-4 border-b hover:bg-gray-50">
+                                    <div class="flex items-start space-x-3">
+                                        <div class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-flag text-yellow-600 text-sm"></i>
+                                        </div>
+                                        <div class="flex-1">
+                                            <p class="text-sm text-gray-900">Job posting requires review</p>
+                                            <p class="text-xs text-gray-500">1 hour ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-4 border-b hover:bg-gray-50">
+                                    <div class="flex items-start space-x-3">
+                                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-dollar-sign text-green-600 text-sm"></i>
+                                        </div>
+                                        <div class="flex-1">
+                                            <p class="text-sm text-gray-900">Payment received: $2,500</p>
+                                            <p class="text-xs text-gray-500">2 hours ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-4 hover:bg-gray-50">
+                                    <div class="flex items-start space-x-3">
+                                        <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-chart-bar text-purple-600 text-sm"></i>
+                                        </div>
+                                        <div class="flex-1">
+                                            <p class="text-sm text-gray-900">Weekly analytics report ready</p>
+                                            <p class="text-xs text-gray-500">3 hours ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4 border-t">
+                                <a href="#" class="text-primary text-sm hover:underline">View all notifications</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- User Info Display -->
+                    <div id="userInfo" class="hidden md:block">
+                        <!-- User info will be populated by auth.js -->
+                    </div>
+
+                    <!-- Admin Profile Dropdown -->
+                    <div class="relative group">
+                        <button class="flex items-center space-x-2 text-gray-700 hover:text-primary transition">
+                            <div class="w-8 h-8 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center">
+                                <i class="fas fa-user-shield text-white text-sm"></i>
+                            </div>
+                            <span class="font-medium">Admin</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="absolute top-full right-0 mt-2 w-48 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Profile Settings</a>
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">System Settings</a>
+                            <div class="border-t"></div>
+                            <a href="../index.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">
+                                <i class="fas fa-home mr-2"></i>Back to Website
+                            </a>
+                            <button id="logoutBtn" class="block w-full text-left px-4 py-2 text-red-600 hover:bg-red-50">
+                                <i class="fas fa-sign-out-alt mr-2"></i>Sign Out
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-primary">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="px-4 py-2 space-y-2">
+                <a href="#dashboard" class="block py-2 text-primary font-medium">
+                    <i class="fas fa-tachometer-alt mr-2"></i>Dashboard
+                </a>
+                <a href="#users" class="block py-2 text-gray-700">
+                    <i class="fas fa-users mr-2"></i>Users
+                </a>
+                <a href="#jobs" class="block py-2 text-gray-700">
+                    <i class="fas fa-briefcase mr-2"></i>Jobs
+                </a>
+                <a href="#reports" class="block py-2 text-gray-700">
+                    <i class="fas fa-chart-bar mr-2"></i>Reports
+                </a>
+                <a href="#settings" class="block py-2 text-gray-700">
+                    <i class="fas fa-cog mr-2"></i>Settings
+                </a>
+                <div class="border-t pt-2 mt-2">
+                    <a href="#" class="block py-2 text-gray-700">Profile Settings</a>
+                    <a href="../index.html" class="block py-2 text-gray-700">Back to Website</a>
+                    <a href="../admin-login.html" class="block py-2 text-red-600 w-full text-left">Sign Out</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Container -->
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <div class="w-64 bg-white shadow-lg">
+            <div class="p-6">
+                <div class="mb-8">
+                    <h3 class="font-semibold text-gray-900 text-lg">Admin Panel</h3>
+                    <p class="text-sm text-gray-600">System Management</p>
+                </div>
+
+                <nav class="space-y-2">
+                    <a href="#dashboard" class="dashboard-nav-link active flex items-center space-x-3 px-4 py-3 text-primary bg-blue-50 rounded-lg">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#users" class="dashboard-nav-link flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg">
+                        <i class="fas fa-users"></i>
+                        <span>User Management</span>
+                    </a>
+                    <a href="#jobs" class="dashboard-nav-link flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Job Management</span>
+                    </a>
+                    <a href="#companies" class="dashboard-nav-link flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg">
+                        <i class="fas fa-building"></i>
+                        <span>Companies</span>
+                    </a>
+                    <a href="#content" class="dashboard-nav-link flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Content Moderation</span>
+                    </a>
+                    <a href="#reports" class="dashboard-nav-link flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Reports & Analytics</span>
+                    </a>
+                    <a href="#system" class="dashboard-nav-link flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg">
+                        <i class="fas fa-cogs"></i>
+                        <span>System Settings</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-8">
+            <!-- Dashboard Section -->
+            <div id="dashboard" class="dashboard-section">
+                <!-- Header -->
+                <div class="mb-8">
+                    <h1 class="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
+                    <p class="text-gray-600 mt-1">System overview and key metrics</p>
+                </div>
+
+                <!-- System Stats -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm">Total Users</p>
+                                <p class="text-3xl font-bold text-gray-900">15,847</p>
+                                <p class="text-green-600 text-sm mt-1">
+                                    <i class="fas fa-arrow-up mr-1"></i>+12% this month
+                                </p>
+                            </div>
+                            <div class="bg-blue-100 text-blue-600 p-3 rounded-lg">
+                                <i class="fas fa-users text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm">Active Jobs</p>
+                                <p class="text-3xl font-bold text-gray-900">2,341</p>
+                                <p class="text-green-600 text-sm mt-1">
+                                    <i class="fas fa-arrow-up mr-1"></i>+8% this week
+                                </p>
+                            </div>
+                            <div class="bg-green-100 text-green-600 p-3 rounded-lg">
+                                <i class="fas fa-briefcase text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm">Companies</p>
+                                <p class="text-3xl font-bold text-gray-900">892</p>
+                                <p class="text-blue-600 text-sm mt-1">
+                                    <i class="fas fa-plus mr-1"></i>23 new this month
+                                </p>
+                            </div>
+                            <div class="bg-purple-100 text-purple-600 p-3 rounded-lg">
+                                <i class="fas fa-building text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm">Applications</p>
+                                <p class="text-3xl font-bold text-gray-900">45,672</p>
+                                <p class="text-green-600 text-sm mt-1">
+                                    <i class="fas fa-arrow-up mr-1"></i>+18% this month
+                                </p>
+                            </div>
+                            <div class="bg-yellow-100 text-yellow-600 p-3 rounded-lg">
+                                <i class="fas fa-file-alt text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity & System Health -->
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <!-- Recent Activity -->
+                    <div class="bg-white rounded-lg shadow-md">
+                        <div class="p-6 border-b border-gray-200">
+                            <h3 class="text-lg font-semibold text-gray-900">Recent System Activity</h3>
+                        </div>
+                        <div class="p-6">
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-4">
+                                    <div class="bg-green-100 text-green-600 p-2 rounded-lg">
+                                        <i class="fas fa-user-plus"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="font-medium text-gray-900">New user registered</p>
+                                        <p class="text-gray-600 text-sm">john.doe@email.com • 2 minutes ago</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center space-x-4">
+                                    <div class="bg-blue-100 text-blue-600 p-2 rounded-lg">
+                                        <i class="fas fa-briefcase"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="font-medium text-gray-900">New job posted</p>
+                                        <p class="text-gray-600 text-sm">TechCorp Inc. • 15 minutes ago</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center space-x-4">
+                                    <div class="bg-yellow-100 text-yellow-600 p-2 rounded-lg">
+                                        <i class="fas fa-flag"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="font-medium text-gray-900">Content reported</p>
+                                        <p class="text-gray-600 text-sm">Job posting flagged • 1 hour ago</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center space-x-4">
+                                    <div class="bg-purple-100 text-purple-600 p-2 rounded-lg">
+                                        <i class="fas fa-building"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="font-medium text-gray-900">Company verified</p>
+                                        <p class="text-gray-600 text-sm">StartupXYZ approved • 2 hours ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- System Health -->
+                    <div class="bg-white rounded-lg shadow-md">
+                        <div class="p-6 border-b border-gray-200">
+                            <h3 class="text-lg font-semibold text-gray-900">System Health</h3>
+                        </div>
+                        <div class="p-6">
+                            <div class="space-y-6">
+                                <div>
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-gray-700">Server Performance</span>
+                                        <span class="text-green-600 font-medium">98%</span>
+                                    </div>
+                                    <div class="bg-gray-200 rounded-full h-2">
+                                        <div class="bg-green-500 h-2 rounded-full" style="width: 98%"></div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-gray-700">Database Health</span>
+                                        <span class="text-green-600 font-medium">95%</span>
+                                    </div>
+                                    <div class="bg-gray-200 rounded-full h-2">
+                                        <div class="bg-green-500 h-2 rounded-full" style="width: 95%"></div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-gray-700">API Response Time</span>
+                                        <span class="text-yellow-600 font-medium">85%</span>
+                                    </div>
+                                    <div class="bg-gray-200 rounded-full h-2">
+                                        <div class="bg-yellow-500 h-2 rounded-full" style="width: 85%"></div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-gray-700">Storage Usage</span>
+                                        <span class="text-blue-600 font-medium">72%</span>
+                                    </div>
+                                    <div class="bg-gray-200 rounded-full h-2">
+                                        <div class="bg-blue-500 h-2 rounded-full" style="width: 72%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="mt-8">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <button class="bg-primary text-white p-4 rounded-lg hover:bg-secondary transition text-center">
+                            <i class="fas fa-user-shield text-2xl mb-2"></i>
+                            <p class="font-medium">Manage Users</p>
+                        </button>
+                        <button class="bg-green-500 text-white p-4 rounded-lg hover:bg-green-600 transition text-center">
+                            <i class="fas fa-check-circle text-2xl mb-2"></i>
+                            <p class="font-medium">Approve Content</p>
+                        </button>
+                        <button class="bg-purple-500 text-white p-4 rounded-lg hover:bg-purple-600 transition text-center">
+                            <i class="fas fa-chart-bar text-2xl mb-2"></i>
+                            <p class="font-medium">View Reports</p>
+                        </button>
+                        <button class="bg-orange-500 text-white p-4 rounded-lg hover:bg-orange-600 transition text-center">
+                            <i class="fas fa-cogs text-2xl mb-2"></i>
+                            <p class="font-medium">System Settings</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Management Section -->
+            <div id="users" class="dashboard-section hidden">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900">User Management</h2>
+                    <button class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-secondary transition">
+                        <i class="fas fa-plus mr-2"></i>Add User
+                    </button>
+                </div>
+
+                <!-- User Filters -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                    <div class="flex flex-wrap items-center gap-4">
+                        <select class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <option>All Users</option>
+                            <option>Job Seekers</option>
+                            <option>Employers</option>
+                            <option>Admins</option>
+                        </select>
+                        <select class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <option>All Status</option>
+                            <option>Active</option>
+                            <option>Inactive</option>
+                            <option>Suspended</option>
+                        </select>
+                        <input type="text" placeholder="Search users..." class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                    </div>
+                </div>
+
+                <!-- Users Table -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <table class="w-full">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">User</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Joined</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="">
+                                        <div class="ml-4">
+                                            <div class="text-sm font-medium text-gray-900">John Smith</div>
+                                            <div class="text-sm text-gray-500">john.smith@email.com</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">Job Seeker</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Jan 15, 2024</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                    <button class="text-primary hover:underline mr-3">Edit</button>
+                                    <button class="text-red-600 hover:underline">Suspend</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="">
+                                        <div class="ml-4">
+                                            <div class="text-sm font-medium text-gray-900">Sarah Johnson</div>
+                                            <div class="text-sm text-gray-500">sarah.johnson@techcorp.com</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-purple-100 text-purple-800">Employer</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Dec 8, 2023</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                    <button class="text-primary hover:underline mr-3">Edit</button>
+                                    <button class="text-red-600 hover:underline">Suspend</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Other sections would be added here -->
+            <!-- Jobs Management Section -->
+            <div id="jobs" class="dashboard-section hidden">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900">Job Management</h2>
+                    <div class="flex space-x-2">
+                        <select class="border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                            <option>All Status</option>
+                            <option>Active</option>
+                            <option>Pending Review</option>
+                            <option>Rejected</option>
+                            <option>Expired</option>
+                        </select>
+                        <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition">
+                            <i class="fas fa-download mr-2"></i>Export Data
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Job Statistics -->
+                <div class="grid md:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-gray-600">Total Jobs</p>
+                                <p class="text-2xl font-bold text-gray-900">2,847</p>
+                            </div>
+                            <div class="bg-blue-100 text-blue-600 p-3 rounded-lg">
+                                <i class="fas fa-briefcase text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-gray-600">Active Jobs</p>
+                                <p class="text-2xl font-bold text-gray-900">1,234</p>
+                            </div>
+                            <div class="bg-green-100 text-green-600 p-3 rounded-lg">
+                                <i class="fas fa-check-circle text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-gray-600">Pending Review</p>
+                                <p class="text-2xl font-bold text-gray-900">89</p>
+                            </div>
+                            <div class="bg-yellow-100 text-yellow-600 p-3 rounded-lg">
+                                <i class="fas fa-clock text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-gray-600">Flagged Jobs</p>
+                                <p class="text-2xl font-bold text-gray-900">23</p>
+                            </div>
+                            <div class="bg-red-100 text-red-600 p-3 rounded-lg">
+                                <i class="fas fa-flag text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jobs Table -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Job Title</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Company</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Posted</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Applications</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr class="hover:bg-gray-50">
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm font-medium text-gray-900">Senior Software Engineer</div>
+                                        <div class="text-sm text-gray-500">Full-time • $150,000/year</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-900">Google Inc.</div>
+                                        <div class="text-sm text-gray-500">Mountain View, CA</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        2 days ago
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        156
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Active</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
+                                        <button class="text-primary hover:underline">View</button>
+                                        <button class="text-yellow-600 hover:underline">Edit</button>
+                                        <button class="text-red-600 hover:underline">Remove</button>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm font-medium text-gray-900">Product Manager</div>
+                                        <div class="text-sm text-gray-500">Full-time • $130,000/year</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-900">Microsoft</div>
+                                        <div class="text-sm text-gray-500">Seattle, WA</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        1 week ago
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        89
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">Pending Review</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
+                                        <button class="text-primary hover:underline">View</button>
+                                        <button class="text-green-600 hover:underline">Approve</button>
+                                        <button class="text-red-600 hover:underline">Reject</button>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm font-medium text-gray-900">UX Designer</div>
+                                        <div class="text-sm text-gray-500">Full-time • $115,000/year</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-900">Apple</div>
+                                        <div class="text-sm text-gray-500">Cupertino, CA</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        3 days ago
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        67
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">Flagged</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
+                                        <button class="text-primary hover:underline">Review</button>
+                                        <button class="text-green-600 hover:underline">Approve</button>
+                                        <button class="text-red-600 hover:underline">Remove</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="flex justify-center mt-6">
+                    <nav class="flex space-x-2">
+                        <button class="px-3 py-2 text-gray-500 hover:text-gray-700">Previous</button>
+                        <button class="px-3 py-2 bg-primary text-white rounded">1</button>
+                        <button class="px-3 py-2 text-gray-700 hover:text-gray-900">2</button>
+                        <button class="px-3 py-2 text-gray-700 hover:text-gray-900">3</button>
+                        <button class="px-3 py-2 text-gray-500 hover:text-gray-700">Next</button>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Companies Management Section -->
+            <div id="companies" class="dashboard-section hidden">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900">Company Management</h2>
+                    <div class="flex space-x-2">
+                        <select class="border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                            <option>All Companies</option>
+                            <option>Verified</option>
+                            <option>Pending Verification</option>
+                            <option>Suspended</option>
+                        </select>
+                        <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition">
+                            <i class="fas fa-plus mr-2"></i>Add Company
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Company Statistics -->
+                <div class="grid md:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-gray-600">Total Companies</p>
+                                <p class="text-2xl font-bold text-gray-900">1,456</p>
+                            </div>
+                            <div class="bg-blue-100 text-blue-600 p-3 rounded-lg">
+                                <i class="fas fa-building text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-gray-600">Verified</p>
+                                <p class="text-2xl font-bold text-gray-900">1,234</p>
+                            </div>
+                            <div class="bg-green-100 text-green-600 p-3 rounded-lg">
+                                <i class="fas fa-check-circle text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-gray-600">Pending</p>
+                                <p class="text-2xl font-bold text-gray-900">156</p>
+                            </div>
+                            <div class="bg-yellow-100 text-yellow-600 p-3 rounded-lg">
+                                <i class="fas fa-clock text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-gray-600">Suspended</p>
+                                <p class="text-2xl font-bold text-gray-900">66</p>
+                            </div>
+                            <div class="bg-red-100 text-red-600 p-3 rounded-lg">
+                                <i class="fas fa-ban text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Companies Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center">
+                                    <span class="text-white font-bold">G</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-900">Google Inc.</h3>
+                                    <p class="text-sm text-gray-600">Technology</p>
+                                </div>
+                            </div>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Verified</span>
+                        </div>
+                        <div class="space-y-2 text-sm text-gray-600">
+                            <div class="flex justify-between">
+                                <span>Active Jobs:</span>
+                                <span class="font-medium">23</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Employees:</span>
+                                <span class="font-medium">150,000+</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Joined:</span>
+                                <span class="font-medium">Jan 2023</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2 mt-4">
+                            <button class="flex-1 bg-primary text-white py-2 rounded-lg hover:bg-secondary transition text-sm">
+                                View Profile
+                            </button>
+                            <button class="px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                                    <span class="text-white font-bold">M</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-900">Microsoft</h3>
+                                    <p class="text-sm text-gray-600">Technology</p>
+                                </div>
+                            </div>
+                            <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">Pending</span>
+                        </div>
+                        <div class="space-y-2 text-sm text-gray-600">
+                            <div class="flex justify-between">
+                                <span>Active Jobs:</span>
+                                <span class="font-medium">18</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Employees:</span>
+                                <span class="font-medium">220,000+</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Joined:</span>
+                                <span class="font-medium">Mar 2023</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2 mt-4">
+                            <button class="flex-1 bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition text-sm">
+                                Verify
+                            </button>
+                            <button class="px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition">
+                                <i class="fas fa-times text-red-600"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center">
+                                    <span class="text-white font-bold">A</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-900">Apple Inc.</h3>
+                                    <p class="text-sm text-gray-600">Technology</p>
+                                </div>
+                            </div>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Verified</span>
+                        </div>
+                        <div class="space-y-2 text-sm text-gray-600">
+                            <div class="flex justify-between">
+                                <span>Active Jobs:</span>
+                                <span class="font-medium">31</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Employees:</span>
+                                <span class="font-medium">164,000+</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Joined:</span>
+                                <span class="font-medium">Feb 2023</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2 mt-4">
+                            <button class="flex-1 bg-primary text-white py-2 rounded-lg hover:bg-secondary transition text-sm">
+                                View Profile
+                            </button>
+                            <button class="px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center">
+                                    <span class="text-white font-bold">N</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-900">Netflix</h3>
+                                    <p class="text-sm text-gray-600">Entertainment</p>
+                                </div>
+                            </div>
+                            <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">Suspended</span>
+                        </div>
+                        <div class="space-y-2 text-sm text-gray-600">
+                            <div class="flex justify-between">
+                                <span>Active Jobs:</span>
+                                <span class="font-medium">0</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Employees:</span>
+                                <span class="font-medium">12,000+</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Suspended:</span>
+                                <span class="font-medium">Dec 2024</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2 mt-4">
+                            <button class="flex-1 bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition text-sm">
+                                Reactivate
+                            </button>
+                            <button class="px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition">
+                                <i class="fas fa-trash text-red-600"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-12 h-12 bg-blue-700 rounded-lg flex items-center justify-center">
+                                    <span class="text-white font-bold">F</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-900">Meta</h3>
+                                    <p class="text-sm text-gray-600">Technology</p>
+                                </div>
+                            </div>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Verified</span>
+                        </div>
+                        <div class="space-y-2 text-sm text-gray-600">
+                            <div class="flex justify-between">
+                                <span>Active Jobs:</span>
+                                <span class="font-medium">27</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Employees:</span>
+                                <span class="font-medium">77,000+</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Joined:</span>
+                                <span class="font-medium">Apr 2023</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2 mt-4">
+                            <button class="flex-1 bg-primary text-white py-2 rounded-lg hover:bg-secondary transition text-sm">
+                                View Profile
+                            </button>
+                            <button class="px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center">
+                                    <span class="text-white font-bold">S</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-900">Spotify</h3>
+                                    <p class="text-sm text-gray-600">Music & Audio</p>
+                                </div>
+                            </div>
+                            <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">Pending</span>
+                        </div>
+                        <div class="space-y-2 text-sm text-gray-600">
+                            <div class="flex justify-between">
+                                <span>Active Jobs:</span>
+                                <span class="font-medium">12</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Employees:</span>
+                                <span class="font-medium">9,000+</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Joined:</span>
+                                <span class="font-medium">Dec 2024</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2 mt-4">
+                            <button class="flex-1 bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition text-sm">
+                                Verify
+                            </button>
+                            <button class="px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition">
+                                <i class="fas fa-times text-red-600"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Load More -->
+                <div class="text-center mt-8">
+                    <button class="bg-gray-100 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-200 transition">
+                        Load More Companies
+                    </button>
+                </div>
+            </div>
+
+            <!-- Content Moderation Section -->
+            <div id="content" class="dashboard-section hidden">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900">Content Moderation</h2>
+                    <div class="flex space-x-2">
+                        <select class="border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                            <option>All Content</option>
+                            <option>Flagged</option>
+                            <option>Pending Review</option>
+                            <option>Approved</option>
+                        </select>
+                        <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition">
+                            <i class="fas fa-plus mr-2"></i>Add Study Material
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Content Statistics -->
+                <div class="grid md:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-gray-600">Total Content</p>
+                                <p class="text-2xl font-bold text-gray-900">3,456</p>
+                            </div>
+                            <div class="bg-blue-100 text-blue-600 p-3 rounded-lg">
+                                <i class="fas fa-file-alt text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-gray-600">Study Materials</p>
+                                <p class="text-2xl font-bold text-gray-900">1,234</p>
+                            </div>
+                            <div class="bg-green-100 text-green-600 p-3 rounded-lg">
+                                <i class="fas fa-book text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-gray-600">Flagged Content</p>
+                                <p class="text-2xl font-bold text-gray-900">45</p>
+                            </div>
+                            <div class="bg-red-100 text-red-600 p-3 rounded-lg">
+                                <i class="fas fa-flag text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-gray-600">Pending Review</p>
+                                <p class="text-2xl font-bold text-gray-900">78</p>
+                            </div>
+                            <div class="bg-yellow-100 text-yellow-600 p-3 rounded-lg">
+                                <i class="fas fa-clock text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Tabs -->
+                <div class="bg-white rounded-lg shadow-md">
+                    <div class="border-b border-gray-200">
+                        <nav class="flex space-x-8 px-6">
+                            <button class="py-4 px-1 border-b-2 border-primary text-primary font-medium text-sm">
+                                Study Materials
+                            </button>
+                            <button class="py-4 px-1 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium text-sm">
+                                Job Descriptions
+                            </button>
+                            <button class="py-4 px-1 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium text-sm">
+                                User Reviews
+                            </button>
+                            <button class="py-4 px-1 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium text-sm">
+                                Flagged Content
+                            </button>
+                        </nav>
+                    </div>
+
+                    <!-- Study Materials Content -->
+                    <div class="p-6">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                                <div class="flex items-center space-x-4">
+                                    <div class="bg-blue-100 text-blue-600 p-3 rounded-lg">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-900">JavaScript Interview Questions</h3>
+                                        <p class="text-sm text-gray-600">Programming • 156 pages • Added 2 days ago</p>
+                                        <div class="flex items-center space-x-4 mt-1">
+                                            <span class="text-xs text-gray-500">Downloads: 2,456</span>
+                                            <span class="text-xs text-gray-500">Rating: 4.8/5</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Approved</span>
+                                    <button class="text-primary hover:underline text-sm">Edit</button>
+                                    <button class="text-red-600 hover:underline text-sm">Remove</button>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                                <div class="flex items-center space-x-4">
+                                    <div class="bg-green-100 text-green-600 p-3 rounded-lg">
+                                        <i class="fas fa-video"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-900">System Design Fundamentals</h3>
+                                        <p class="text-sm text-gray-600">System Design • Video Course • Added 1 week ago</p>
+                                        <div class="flex items-center space-x-4 mt-1">
+                                            <span class="text-xs text-gray-500">Views: 12,345</span>
+                                            <span class="text-xs text-gray-500">Rating: 4.9/5</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">Pending</span>
+                                    <button class="text-green-600 hover:underline text-sm">Approve</button>
+                                    <button class="text-red-600 hover:underline text-sm">Reject</button>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                                <div class="flex items-center space-x-4">
+                                    <div class="bg-purple-100 text-purple-600 p-3 rounded-lg">
+                                        <i class="fas fa-code"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-900">Data Structures & Algorithms</h3>
+                                        <p class="text-sm text-gray-600">Programming • Practice Problems • Added 3 days ago</p>
+                                        <div class="flex items-center space-x-4 mt-1">
+                                            <span class="text-xs text-gray-500">Attempts: 8,901</span>
+                                            <span class="text-xs text-gray-500">Rating: 4.7/5</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Approved</span>
+                                    <button class="text-primary hover:underline text-sm">Edit</button>
+                                    <button class="text-red-600 hover:underline text-sm">Remove</button>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between p-4 border border-red-200 bg-red-50 rounded-lg">
+                                <div class="flex items-center space-x-4">
+                                    <div class="bg-red-100 text-red-600 p-3 rounded-lg">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-900">Inappropriate Content Detected</h3>
+                                        <p class="text-sm text-gray-600">Resume Template • Flagged for inappropriate content • Added 1 day ago</p>
+                                        <div class="flex items-center space-x-4 mt-1">
+                                            <span class="text-xs text-red-600">Flagged by: 5 users</span>
+                                            <span class="text-xs text-red-600">Reason: Inappropriate language</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">Flagged</span>
+                                    <button class="text-primary hover:underline text-sm">Review</button>
+                                    <button class="text-red-600 hover:underline text-sm">Remove</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pagination -->
+                        <div class="flex justify-center mt-6">
+                            <nav class="flex space-x-2">
+                                <button class="px-3 py-2 text-gray-500 hover:text-gray-700">Previous</button>
+                                <button class="px-3 py-2 bg-primary text-white rounded">1</button>
+                                <button class="px-3 py-2 text-gray-700 hover:text-gray-900">2</button>
+                                <button class="px-3 py-2 text-gray-700 hover:text-gray-900">3</button>
+                                <button class="px-3 py-2 text-gray-500 hover:text-gray-700">Next</button>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reports & Analytics Section -->
+            <div id="reports" class="dashboard-section hidden">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900">Reports & Analytics</h2>
+                    <div class="flex space-x-2">
+                        <select class="border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                            <option>Last 30 days</option>
+                            <option>Last 7 days</option>
+                            <option>Last 90 days</option>
+                            <option>Custom Range</option>
+                        </select>
+                        <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition">
+                            <i class="fas fa-download mr-2"></i>Export Report
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Key Metrics -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-gray-600">Total Users</p>
+                                <p class="text-2xl font-bold text-gray-900">45,678</p>
+                                <p class="text-sm text-green-600">+12% from last month</p>
+                            </div>
+                            <div class="bg-blue-100 text-blue-600 p-3 rounded-lg">
+                                <i class="fas fa-users text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-gray-600">Active Jobs</p>
+                                <p class="text-2xl font-bold text-gray-900">2,847</p>
+                                <p class="text-sm text-blue-600">+8% from last month</p>
+                            </div>
+                            <div class="bg-green-100 text-green-600 p-3 rounded-lg">
+                                <i class="fas fa-briefcase text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-gray-600">Applications</p>
+                                <p class="text-2xl font-bold text-gray-900">123,456</p>
+                                <p class="text-sm text-purple-600">+15% from last month</p>
+                            </div>
+                            <div class="bg-purple-100 text-purple-600 p-3 rounded-lg">
+                                <i class="fas fa-file-alt text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-gray-600">Revenue</p>
+                                <p class="text-2xl font-bold text-gray-900">$89,456</p>
+                                <p class="text-sm text-green-600">+23% from last month</p>
+                            </div>
+                            <div class="bg-yellow-100 text-yellow-600 p-3 rounded-lg">
+                                <i class="fas fa-dollar-sign text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts and Analytics -->
+                <div class="grid lg:grid-cols-2 gap-8 mb-8">
+                    <!-- User Growth Chart -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">User Growth</h3>
+                        <div class="h-64 bg-gray-50 rounded-lg flex items-center justify-center">
+                            <div class="text-center text-gray-500">
+                                <i class="fas fa-chart-line text-4xl mb-2"></i>
+                                <p>User growth chart would be displayed here</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Job Application Trends -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Application Trends</h3>
+                        <div class="h-64 bg-gray-50 rounded-lg flex items-center justify-center">
+                            <div class="text-center text-gray-500">
+                                <i class="fas fa-chart-bar text-4xl mb-2"></i>
+                                <p>Application trends chart would be displayed here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detailed Reports -->
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <!-- Top Performing Content -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Top Performing Content</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <div>
+                                    <p class="font-medium text-gray-900">JavaScript Interview Guide</p>
+                                    <p class="text-sm text-gray-600">Study Material</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-sm font-medium text-green-600">2,456 downloads</p>
+                                    <div class="w-20 bg-gray-200 rounded-full h-2">
+                                        <div class="bg-green-500 h-2 rounded-full" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <div>
+                                    <p class="font-medium text-gray-900">System Design Course</p>
+                                    <p class="text-sm text-gray-600">Video Content</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-sm font-medium text-blue-600">1,890 views</p>
+                                    <div class="w-20 bg-gray-200 rounded-full h-2">
+                                        <div class="bg-blue-500 h-2 rounded-full" style="width: 72%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <div>
+                                    <p class="font-medium text-gray-900">Resume Templates</p>
+                                    <p class="text-sm text-gray-600">Templates</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-sm font-medium text-purple-600">1,234 downloads</p>
+                                    <div class="w-20 bg-gray-200 rounded-full h-2">
+                                        <div class="bg-purple-500 h-2 rounded-full" style="width: 58%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- System Health -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">System Health</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="font-medium text-gray-900">Server Uptime</p>
+                                    <p class="text-sm text-gray-600">Last 30 days</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-lg font-bold text-green-600">99.9%</p>
+                                    <div class="w-24 bg-gray-200 rounded-full h-2">
+                                        <div class="bg-green-500 h-2 rounded-full" style="width: 99%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="font-medium text-gray-900">Response Time</p>
+                                    <p class="text-sm text-gray-600">Average</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-lg font-bold text-blue-600">245ms</p>
+                                    <p class="text-sm text-green-600">Excellent</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="font-medium text-gray-900">Error Rate</p>
+                                    <p class="text-sm text-gray-600">Last 24 hours</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-lg font-bold text-green-600">0.01%</p>
+                                    <p class="text-sm text-green-600">Very Low</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="font-medium text-gray-900">Database Performance</p>
+                                    <p class="text-sm text-gray-600">Query response time</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-lg font-bold text-blue-600">12ms</p>
+                                    <p class="text-sm text-green-600">Optimal</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Settings Section -->
+            <div id="system" class="dashboard-section hidden">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">System Settings</h2>
+
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <!-- General Settings -->
+                    <div class="space-y-6">
+                        <div class="bg-white rounded-lg shadow-md p-6">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4">General Settings</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Site Name</label>
+                                    <input type="text" value="EasyNaukri4U" class="w-full border border-gray-300 rounded-lg px-3 py-2">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Site Description</label>
+                                    <textarea rows="3" class="w-full border border-gray-300 rounded-lg px-3 py-2">Find your dream job in the USA with our comprehensive job portal featuring thousands of opportunities across all industries.</textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Contact Email</label>
+                                    <input type="email" value="admin@easynaukri4u.com" class="w-full border border-gray-300 rounded-lg px-3 py-2">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Support Phone</label>
+                                    <input type="tel" value="+1 (555) 123-4567" class="w-full border border-gray-300 rounded-lg px-3 py-2">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg shadow-md p-6">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Email Settings</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">SMTP Server</label>
+                                    <input type="text" value="smtp.easynaukri4u.com" class="w-full border border-gray-300 rounded-lg px-3 py-2">
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Port</label>
+                                        <input type="number" value="587" class="w-full border border-gray-300 rounded-lg px-3 py-2">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Encryption</label>
+                                        <select class="w-full border border-gray-300 rounded-lg px-3 py-2">
+                                            <option>TLS</option>
+                                            <option>SSL</option>
+                                            <option>None</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="font-medium text-gray-900">Email Notifications</p>
+                                        <p class="text-sm text-gray-600">Send system notifications via email</p>
+                                    </div>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" class="sr-only peer" checked>
+                                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg shadow-md p-6">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Security Settings</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="font-medium text-gray-900">Two-Factor Authentication</p>
+                                        <p class="text-sm text-gray-600">Require 2FA for admin accounts</p>
+                                    </div>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" class="sr-only peer" checked>
+                                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                                    </label>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="font-medium text-gray-900">Login Attempts Limit</p>
+                                        <p class="text-sm text-gray-600">Block users after failed attempts</p>
+                                    </div>
+                                    <input type="number" value="5" class="w-16 border border-gray-300 rounded-lg px-2 py-1 text-center">
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="font-medium text-gray-900">Session Timeout</p>
+                                        <p class="text-sm text-gray-600">Auto logout after inactivity (minutes)</p>
+                                    </div>
+                                    <input type="number" value="30" class="w-16 border border-gray-300 rounded-lg px-2 py-1 text-center">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Advanced Settings -->
+                    <div class="space-y-6">
+                        <div class="bg-white rounded-lg shadow-md p-6">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Job Posting Settings</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="font-medium text-gray-900">Auto-approve Jobs</p>
+                                        <p class="text-sm text-gray-600">Automatically approve job postings</p>
+                                    </div>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" class="sr-only peer">
+                                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Default Job Duration (days)</label>
+                                    <input type="number" value="30" class="w-full border border-gray-300 rounded-lg px-3 py-2">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Maximum Job Duration (days)</label>
+                                    <input type="number" value="90" class="w-full border border-gray-300 rounded-lg px-3 py-2">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Featured Job Price ($)</label>
+                                    <input type="number" value="99" class="w-full border border-gray-300 rounded-lg px-3 py-2">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg shadow-md p-6">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4">User Management</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="font-medium text-gray-900">User Registration</p>
+                                        <p class="text-sm text-gray-600">Allow new user registrations</p>
+                                    </div>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" class="sr-only peer" checked>
+                                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                                    </label>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="font-medium text-gray-900">Email Verification</p>
+                                        <p class="text-sm text-gray-600">Require email verification for new users</p>
+                                    </div>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" class="sr-only peer" checked>
+                                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Default User Role</label>
+                                    <select class="w-full border border-gray-300 rounded-lg px-3 py-2">
+                                        <option>Candidate</option>
+                                        <option>Employer</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg shadow-md p-6">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4">System Maintenance</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="font-medium text-gray-900">Maintenance Mode</p>
+                                        <p class="text-sm text-gray-600">Put site in maintenance mode</p>
+                                    </div>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" class="sr-only peer">
+                                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                                    </label>
+                                </div>
+                                <div class="space-y-2">
+                                    <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+                                        <i class="fas fa-database mr-2"></i>Backup Database
+                                    </button>
+                                    <button class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition">
+                                        <i class="fas fa-broom mr-2"></i>Clear Cache
+                                    </button>
+                                    <button class="w-full bg-yellow-600 text-white py-2 rounded-lg hover:bg-yellow-700 transition">
+                                        <i class="fas fa-sync mr-2"></i>Restart Services
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Save Button -->
+                <div class="mt-8 flex justify-end">
+                    <button class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-secondary transition">
+                        <i class="fas fa-save mr-2"></i>Save All Settings
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+    <script type="module">
+        // Import Firebase modules for authentication
+        import { firebaseAuth } from '../js/firebase-config.js';
+
+        // Protect this page - redirect to admin login if not authenticated
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check authentication status
+            firebaseAuth.addAuthStateListener((user) => {
+                if (!firebaseAuth.isAdminAuthenticated()) {
+                    // Not authenticated as admin, redirect to login
+                    alert('This dashboard is now restricted to administrators only. Redirecting to secure login...');
+                    window.location.href = '../admin-login.html';
+                    return;
+                }
+
+                // User is authenticated, initialize dashboard
+                EasyNaukri.initializeDashboardNavigation();
+            });
+        });
+    </script>
+</body>
+</html>

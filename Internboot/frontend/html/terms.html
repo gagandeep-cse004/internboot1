@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Internboot | Certificate Verification</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #004aad, #00aaff);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  header { text-align: center; padding: 20px; }
+  header img { width: 200px; height: 150px; }
+  header h1 { font-size: 1.8rem; font-weight: 700; }
+
+  .container {
+    background: rgba(255, 255, 255, 0.1);
+    margin: 20px auto;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 420px;
+    width: 90%;
+    text-align: center;
+    backdrop-filter: blur(5px);
+  }
+
+  input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 8px;
+    background: #00c2ff;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  .result {
+    margin-top: 25px;
+    padding: 15px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.15);
+    text-align: left;
+  }
+
+  footer {
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.1);
+    margin-top: auto;
+  }
+</style>
+
+<!-- Include PapaParse for CSV parsing -->
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+
+<header>
+  <img src="data:image/png;base64,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" alt="Internboot Logo">
+  <h1>Internboot Certificate Verification</h1>
+  <p>Launch Your Career with the Perfect Internship<br>
+  Connecting talented students with top companies for meaningful internship experiences that shape future careers.</p>
+</header>
+
+<div class="container">
+    <h2>Certificate Verification</h2>
+    <input type="text" id="emailInput" placeholder="Enter your Email ID">
+    <button onclick="verifyCertificate()">Verify</button>
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQyOPtIAPqAkURX1Ib2IXPmrrao-dtGI9uvQoAvl70qMH7koBV2CSwffpeAeCqhrl01zq-0kvW_QASS/pub?output=csv";
+let certificateData = [];
+
+// Fetch and parse CSV using PapaParse
+Papa.parse(CSV_URL, {
+    download: true,
+    header: true,
+    skipEmptyLines: true,
+    complete: function(results) {
+        // Normalize headers and trim values
+        certificateData = results.data.map(row => {
+            const normalized = {};
+            for (let key in row) {
+                normalized[key.trim().replace(/\n/g, "")] = row[key].trim();
+            }
+            return normalized;
+        });
+        console.log("Loaded certificate data:", certificateData);
+    }
+});
+
+function verifyCertificate() {
+    const email = document.getElementById("emailInput").value.trim().toLowerCase();
+    const resultDiv = document.getElementById("result");
+
+    if (!email) {
+        resultDiv.innerHTML = "<p style='color:#ff4444;'>Please enter your Email ID.</p>";
+        return;
+    }
+
+    const record = certificateData.find(row =>
+        row["Email"] && row["Email"].toLowerCase() === email
+    );
+
+    if (!record) {
+        resultDiv.innerHTML = "<p style='color:#ff4444;'>Email not found in our records.</p>";
+        return;
+    }
+
+    const pdfName = record["Certificate ID"] + ".pdf";
+    const pdfURL = "certificates/" + pdfName;
+
+    resultDiv.innerHTML = `
+        <h3>Verified Certificate</h3>
+        <p><strong>Name:</strong> ${record["Name"]}</p>
+        <p><strong>Domain:</strong> ${record["Domain"]}</p>
+        <p><strong>Tenure:</strong> ${record["Tenure"]}</p>
+        <p><strong>Certificate ID:</strong> ${record["Certificate ID"]}</p>
+
+        <a href="${pdfURL}" download>
+            <button style="
+                margin-top:15px;
+                background:#00ffcc;
+                color:#003300;
+                font-weight:bold;
+                padding:12px;
+                width:100%;
+                border-radius:8px;
+            ">
+                Download Certificate
+            </button>
+        </a>
+    `;
+}
+</script>
+
+<footer>
+  © Internboot 2025
+</footer>
+
+</body>
+</html>

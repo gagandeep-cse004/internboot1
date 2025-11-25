@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - USA EasyNaukri4U</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#2563eb',
+                        'secondary': '#1e40af',
+                        'accent': '#f59e0b',
+                        'success': '#10b981',
+                        'danger': '#ef4444',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="font-inter bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 min-h-screen">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 bg-black opacity-50"></div>
+    <div class="absolute inset-0"
+        style="background-image: url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%23ffffff%22 fill-opacity=%220.05%22%3E%3Ccircle cx=%2230%22 cy=%2230%22 r=%222%22/%3E%3C/g%3E%3C/svg%3E');">
+    </div>
+
+    <!-- Main Content -->
+    <div class="relative min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-md w-full space-y-8">
+            <!-- Header -->
+            <div class="text-center">
+                <div class="flex justify-center mb-6">
+                    <div class="bg-red-600 text-white p-4 rounded-full shadow-lg">
+                        <i class="fas fa-user-shield text-3xl"></i>
+                    </div>
+                </div>
+                <h2 class="text-3xl font-bold text-white mb-2">Admin Access</h2>
+                <p class="text-gray-300">Secure login for system administrators</p>
+                <div class="mt-4 p-3 bg-yellow-900 bg-opacity-50 rounded-lg border border-yellow-600">
+                    <div class="flex items-center">
+                        <i class="fas fa-shield-alt text-yellow-400 mr-2"></i>
+                        <span class="text-yellow-200 text-sm">Authorized personnel only</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Login Form -->
+            <div
+                class="bg-white bg-opacity-10 backdrop-blur-lg rounded-lg shadow-xl p-8 border border-white border-opacity-20">
+                <form id="adminLoginForm" class="space-y-6">
+                    <!-- Email -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-200 mb-2">
+                            <i class="fas fa-envelope mr-2"></i>Admin Email
+                        </label>
+                        <div class="relative">
+                            <input type="email" id="email" name="email" required
+                                class="w-full px-4 py-3 bg-white bg-opacity-10 border border-white border-opacity-30 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-white placeholder-gray-300"
+                                placeholder="Enter admin email address">
+                        </div>
+                        <div id="email-error" class="hidden text-red-400 text-sm mt-1"></div>
+                    </div>
+
+                    <!-- Password -->
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-200 mb-2">
+                            <i class="fas fa-lock mr-2"></i>Password
+                        </label>
+                        <div class="relative">
+                            <input type="password" id="password" name="password" required
+                                class="w-full px-4 py-3 bg-white bg-opacity-10 border border-white border-opacity-30 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-white placeholder-gray-300"
+                                placeholder="Enter admin password">
+                            <button type="button" id="togglePassword"
+                                class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-300 hover:text-white">
+                                <i class="fas fa-eye" id="password-eye"></i>
+                            </button>
+                        </div>
+                        <div id="password-error" class="hidden text-red-400 text-sm mt-1"></div>
+                    </div>
+
+                    <!-- Security Notice -->
+                    <div class="bg-red-900 bg-opacity-30 rounded-lg p-3 border border-red-600">
+                        <div class="flex items-start">
+                            <i class="fas fa-exclamation-triangle text-red-400 mr-2 mt-0.5"></i>
+                            <div class="text-red-200 text-xs">
+                                <p class="font-medium mb-1">Security Notice:</p>
+                                <ul class="list-disc list-inside space-y-1">
+                                    <li>Only authorized administrators can access this system</li>
+                                    <li>All login attempts are logged and monitored</li>
+                                    <li>Unauthorized access attempts will be reported</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" id="loginBtn"
+                        class="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition font-medium flex items-center justify-center">
+                        <i class="fas fa-sign-in-alt mr-2"></i>
+                        <span id="loginBtnText">Secure Login</span>
+                        <i id="loginSpinner" class="fas fa-spinner fa-spin ml-2 hidden"></i>
+                    </button>
+
+                    <!-- Back to Website -->
+                    <div class="text-center">
+                        <a href="index.html" class="text-gray-300 hover:text-white transition text-sm">
+                            <i class="fas fa-arrow-left mr-1"></i>Back to Website
+                        </a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Footer -->
+            <div class="text-center text-gray-400 text-sm">
+                <p>&copy; 2024 USA.EasyNaukri4U - Admin Portal</p>
+                <p class="mt-1">Secured by Firebase Authentication</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-6 text-center">
+            <i class="fas fa-spinner fa-spin text-3xl text-primary mb-4"></i>
+            <p class="text-gray-700">Authenticating...</p>
+        </div>
+    </div>
+
+    <!-- Firebase Configuration -->
+    <script type="module">
+        import { firebaseAuth, FirebaseUtils } from './js/firebase-config.js';
+
+        // Check if already authenticated
+        firebaseAuth.addAuthStateListener((user) => {
+            if (user && firebaseAuth.isAdminAuthenticated()) {
+                window.location.href = 'admin-panel.html';
+            }
+        });
+
+        // Toggle password visibility
+        document.getElementById('togglePassword').addEventListener('click', function () {
+            const passwordField = document.getElementById('password');
+            const eyeIcon = document.getElementById('password-eye');
+
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                eyeIcon.className = 'fas fa-eye-slash';
+            } else {
+                passwordField.type = 'password';
+                eyeIcon.className = 'fas fa-eye';
+            }
+        });
+
+        // Form submission
+        document.getElementById('adminLoginForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const loginBtn = document.getElementById('loginBtn');
+            const loginBtnText = document.getElementById('loginBtnText');
+            const loginSpinner = document.getElementById('loginSpinner');
+            const loadingOverlay = document.getElementById('loadingOverlay');
+
+            // Clear previous errors
+            document.getElementById('email-error').classList.add('hidden');
+            document.getElementById('password-error').classList.add('hidden');
+
+            // Validate inputs
+            if (!email) {
+                document.getElementById('email-error').textContent = 'Email is required';
+                document.getElementById('email-error').classList.remove('hidden');
+                return;
+            }
+
+            if (!FirebaseUtils.isValidEmail(email)) {
+                document.getElementById('email-error').textContent = 'Please enter a valid email address';
+                document.getElementById('email-error').classList.remove('hidden');
+                return;
+            }
+
+            if (!password) {
+                document.getElementById('password-error').textContent = 'Password is required';
+                document.getElementById('password-error').classList.remove('hidden');
+                return;
+            }
+
+            // Show loading state
+            loginBtn.disabled = true;
+            loginBtnText.textContent = 'Authenticating...';
+            loginSpinner.classList.remove('hidden');
+            loadingOverlay.classList.remove('hidden');
+
+            try {
+                // Attempt to sign in
+                await firebaseAuth.signIn(email, password);
+
+                FirebaseUtils.showNotification('Login successful! Redirecting to admin panel...', 'success');
+
+                // Redirect will happen automatically via auth state listener
+                setTimeout(() => {
+                    window.location.href = 'admin-panel.html';
+                }, 1500);
+
+            } catch (error) {
+                console.error('Login error:', error);
+
+                let errorMessage = 'Login failed. Please try again.';
+
+                if (error.code === 'auth/user-not-found') {
+                    errorMessage = 'Admin account not found.';
+                } else if (error.code === 'auth/wrong-password') {
+                    errorMessage = 'Incorrect password.';
+                } else if (error.code === 'auth/invalid-email') {
+                    errorMessage = 'Invalid email address.';
+                } else if (error.code === 'auth/too-many-requests') {
+                    errorMessage = 'Too many failed attempts. Please try again later.';
+                } else if (error.message && error.message.includes("Access denied")) {
+                    errorMessage = "Access denied. Only authorized administrators can login.";
+                }
+
+                FirebaseUtils.showNotification(errorMessage, 'error');
+
+                // Reset form state
+                loginBtn.disabled = false;
+                loginBtnText.textContent = 'Secure Login';
+                loginSpinner.classList.add('hidden');
+                loadingOverlay.classList.add('hidden');
+            }
+        });
+
+        // Security: Prevent right-click and F12
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+
+</html>
