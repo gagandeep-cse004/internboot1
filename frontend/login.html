@@ -305,14 +305,14 @@
                         if (data.success) {
                             localStorage.setItem("user", JSON.stringify(data.user));
                             alert("✅ Login successful!");
-                            window.location.href = "Dashboard.html";
+                            window.location.href = "dashboard.html";
                         } else {
                             errorMsg.textContent = data.message || "Backend login failed.";
                         }
                     } catch (err) {
                         console.warn("Backend not reachable:", err);
                         alert("✅ Firebase login successful");
-                        window.location.href = "Dashboard.html";
+                        window.location.href = "dashboard.html";
                     }
 
                 } catch (error) {
