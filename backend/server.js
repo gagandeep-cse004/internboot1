@@ -11,7 +11,7 @@ const saltRounds=10;
 const app = express();
 app.use(cors({
     origin: [
-        "https://internboot1-kfix.vercel.app",  // YOUR FRONTEND
+        "https://internboot1-woij.vercel.app/",  // YOUR FRONTEND
         "http://localhost:3000"
     ],
     credentials: true,
